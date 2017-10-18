@@ -12,9 +12,12 @@ public class MainClass {
 
         // Register our bot
         try {
+            System.out.println("Starting up bot...");
             botsApi.registerBot(new BittleBot());
+            System.out.println("Bot started up successfully.");
         } catch (TelegramApiException e) {
             e.printStackTrace();
+            System.out.println("Bot failed to start.");
         }
     }
 }
