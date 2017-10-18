@@ -1,3 +1,6 @@
+package com.bittle.bot;
+
+import com.bittle.bot.BittleBot;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.TelegramBotsApi;
 import org.telegram.telegrambots.exceptions.TelegramApiException;

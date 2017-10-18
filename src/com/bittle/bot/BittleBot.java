@@ -1,3 +1,5 @@
+package com.bittle.bot;
+
 import com.bittle.urban.UrbanDictionary;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Update;
@@ -5,7 +7,7 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
 public class BittleBot extends TelegramLongPollingBot {
-    UrbanDictionary dictionary = new UrbanDictionary();
+    private UrbanDictionary dictionary = new UrbanDictionary();
     @Override
     public void onUpdateReceived(Update update) {
         // We check if the update has a message and the message has text
@@ -29,7 +31,7 @@ public class BittleBot extends TelegramLongPollingBot {
 
     }
 
-    public void sendTxtMsg(long chat_id, String msg){
+    private void sendTxtMsg(long chat_id, String msg){
         SendMessage message = new SendMessage() // Create a message object object
                 .setChatId(chat_id)
                 .setText(msg);
