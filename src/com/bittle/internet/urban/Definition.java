@@ -1,4 +1,4 @@
-package com.bittle.urban;
+package com.bittle.internet.urban;
 
 import com.google.gson.JsonObject;
 
