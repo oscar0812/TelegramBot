@@ -590,8 +590,9 @@ public class BotMaintainer extends MainBotClass {
             String restOfText = message_text.substring(message_text.indexOf(" ")).trim();
             try {
                 int num = Integer.parseInt(restOfText);
-                if (num == 0 || num > 4085) {
-                    sendTextMessage(chat_id, "Max message length should be between 1 and 4085");
+                if (num == 0 || num > Constants.MAX_MESSAGE_INT) {
+                    sendTextMessage(chat_id,
+                            "Max message length should be between 1 and "+Constants.MAX_MESSAGE_INT);
                 } else {
                     sendTextMessage(chat_id, "Max message length set to " + num);
                     MainClass.perGroupBotConfig.setMaxTextLength(num);
