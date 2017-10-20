@@ -17,8 +17,6 @@ public class Hangman {
         }
     }
 
-    private String spaceLookAlike = "\u00a0";
-
     private int currentWrong = 0;
     private String answer;
 
@@ -38,16 +36,16 @@ public class Hangman {
     }
 
     public String getCurrentString() {
-        String all = "";
-        for (int x = 0; x < charactersInAnswer.size(); x++) {
-            MyChar current = charactersInAnswer.get(x);
-            if (current.is_guessed)
-                all += (current.character + " ");
-            else
-                all += "_ ";
+        StringBuilder all = new StringBuilder();
+        for (MyChar current : charactersInAnswer) {
+            if (current.is_guessed) {
+                all.append(current.character);
+                all.append(" ");
+            } else
+                all.append("_ ");
         }
 
-        return all.trim();
+        return all.toString().trim();
     }
 
     public String getCorrectAnswer() {
@@ -78,8 +76,8 @@ public class Hangman {
     public boolean isWin() {
         boolean flag = true;
 
-        for (int x = 0; x < charactersInAnswer.size(); x++) {
-            if (!charactersInAnswer.get(x).is_guessed)
+        for (MyChar aCharactersInAnswer : charactersInAnswer) {
+            if (!aCharactersInAnswer.is_guessed)
                 flag = false;
         }
 
@@ -91,16 +89,16 @@ public class Hangman {
     }
 
     public String getAllGuesses() {
-        String all = "";
-
+        StringBuilder all = new StringBuilder();
         for (Character guessedChar : guessedChars) {
-            all += (guessedChar + " ");
+            all.append(guessedChar);
+            all.append(" ");
         }
-
-        return all;
+        return all.toString();
     }
 
     public String getDrawing() {
+        String spaceLookAlike = "\u00a0";
         if (currentWrong == 0) {
             return spaceLookAlike + "  ____\n" +
                     "   |     |\n" +
