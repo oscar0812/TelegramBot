@@ -22,15 +22,15 @@ import java.util.Objects;
 
 public class MainBotClass extends TelegramLongPollingBot {
 
-    public MainBotClass() {
+    MainBotClass() {
         super();
     }
 
-    public MainBotClass(BotMaintainer bm) {
+    MainBotClass(BotMaintainer bm) {
         botMaintainer = bm;
     }
 
-    public ScoreKeeper scoreKeeper;
+    private ScoreKeeper scoreKeeper;
 
     private BotMaintainer botMaintainer = null;
 
@@ -40,8 +40,9 @@ public class MainBotClass extends TelegramLongPollingBot {
 
         // We check if the update has a message and the message has text
         if (update.hasMessage()) {
-            long chat_id = update.getMessage().getChatId();
-            if (update.getMessage().hasText()) {
+            Message message = update.getMessage();
+            long chat_id = message.getChatId();
+            if (message.hasText()) {
 
                 scoreKeeper = new ScoreKeeper(update);
                 botMaintainer.respondToText(update, scoreKeeper);
@@ -69,14 +70,14 @@ public class MainBotClass extends TelegramLongPollingBot {
 
                                     if (botIsAdmin(update)) {
 
-                                        sendTextMessage(chat_id, "Anti-bot on.");
+                                        sendTextMessage(chat_id, "Anti-bot on.", message);
                                         kickUser(chat_id, currentUser);
                                         join_users.remove(currentUser);
                                         continue;
                                     } else {
                                         sendTextMessage(chat_id, "Anti bot is on, " +
                                                 "but can\'t remove " + currentUser.getUserName() +
-                                                " because this bot is not admin.");
+                                                " because this bot is not admin.", message);
                                     }
                                 }
                             }
@@ -85,39 +86,40 @@ public class MainBotClass extends TelegramLongPollingBot {
                                 // joined user doesn't have a pfp
                                 if (MainClass.perGroupBotConfig.needsPfp()) {
                                     if (botIsAdmin(update)) {
-                                        sendTextMessage(chat_id, "Profile picture needed when joining.");
+                                        sendTextMessage(chat_id,
+                                                "Profile picture needed when joining.", message);
                                         kickUser(chat_id, currentUser);
                                         join_users.remove(currentUser);
                                     } else {
                                         sendTextMessage(chat_id, "Pfp command is on, " +
                                                 "but can\'t remove " + currentUser.getUserName() +
-                                                " because this bot is not admin.");
+                                                " because this bot is not admin.", message);
                                     }
                                 }
                             }
                         }
 
                         if (!join_users.isEmpty())
-                            sendTextMessage(chat_id, MainClass.perGroupBotConfig.getWelcomeMessage(join_users));
+                            sendTextMessage(chat_id, MainClass.perGroupBotConfig.getWelcomeMessage(join_users), message);
                     }
                 }
 
                 // chat member left
                 if (memberLeftChat(update) && MainClass.perGroupBotConfig.isByeOn()) {
-                    sendTextMessage(chat_id, MainClass.perGroupBotConfig.getByeMessage(update));
+                    sendTextMessage(chat_id, MainClass.perGroupBotConfig.getByeMessage(update), message);
                 }
 
             }
         }
     }
 
-    public boolean isBotCreator(User user) {
+    boolean isBotCreator(User user) {
         String name = user.getUserName();
         return name.equals("OGBittle");
     }
 
     // checks if in pm of OGBittle
-    public boolean isBotCreatorPm(Update up) {
+    private boolean isBotCreatorPm(Update up) {
         String user = up.getMessage().getFrom().getUserName();
         Message message = up.getMessage();
         return user.equals("OGBittle") && message.getChat().isUserChat()
@@ -125,23 +127,24 @@ public class MainBotClass extends TelegramLongPollingBot {
     }
 
     // checks if bot admin ( the ones with /leave power, etc)
-    public boolean isAdminOfBot(User user) {
+    boolean isAdminOfBot(User user) {
         return isBotCreator(user) || MainClass.GLOBAL_BOT_CONFIG.adminExists(user.getId());
     }
 
-    public void sendTextMessage(long chat_id, String message_text) {
+    void sendTextMessage(long chat_id, String message_text, Message msg) {
         String[] strings = StringUtils.splitString(message_text, Constants.MAX_MESSAGE_INT);
 
-        for (int x = 0; x < strings.length; x++) {
-            sendTextMessageHelper(chat_id, strings[x]);
+        for (String string : strings) {
+            sendTextMessageHelper(chat_id, string, msg);
         }
     }
 
     // sends a text message back to the group/person
-    private void sendTextMessageHelper(long chat_id, String message_text) {
+    private void sendTextMessageHelper(long chat_id, String message_text, Message msg) {
         SendMessage message = new SendMessage() // Create a message object object
                 .setChatId(chat_id)
-                .setText(message_text);
+                .setText(message_text)
+                .setReplyToMessageId(msg.getMessageId());
         try {
             execute(message); // Sending our message object to user
         } catch (TelegramApiException e) {
@@ -151,7 +154,7 @@ public class MainBotClass extends TelegramLongPollingBot {
 
     // 1
 
-    public String getFilePath(PhotoSize photo) {
+    private String getFilePath(PhotoSize photo) {
         Objects.requireNonNull(photo);
 
         if (photo.hasFilePath()) { // If the file_path is already present, we are done!
@@ -162,7 +165,7 @@ public class MainBotClass extends TelegramLongPollingBot {
             getFileMethod.setFileId(photo.getFileId());
             try {
                 // We execute the method using AbsSender::getFile method.
-                File file = getFile(getFileMethod);
+                File file = execute(getFileMethod);
                 // We now have the file_path
                 return file.getFilePath();
             } catch (TelegramApiException e) {
@@ -174,7 +177,7 @@ public class MainBotClass extends TelegramLongPollingBot {
     }
 
     // 2
-    public java.io.File downloadPhotoByFilePath(String filePath) {
+    private  java.io.File downloadPhotoByFilePath(String filePath) {
         try {
             // Download the file calling AbsSender::downloadFile method
             return downloadFile(filePath);
@@ -186,7 +189,7 @@ public class MainBotClass extends TelegramLongPollingBot {
     }
 
     // 3
-    public void sendImageUploadingAFile(String filePath, String chatId) {
+    private void sendImageUploadingAFile(String filePath, String chatId) {
         // Create send method
         SendPhoto sendPhotoRequest = new SendPhoto();
         // Set destination chat id
@@ -201,14 +204,14 @@ public class MainBotClass extends TelegramLongPollingBot {
         }
     }
 
-    public boolean userHasPfp(User user) {
+    private boolean userHasPfp(User user) {
         try {
             GetUserProfilePhotos pfp = new GetUserProfilePhotos();
             pfp.setUserId(user.getId());
             pfp.setLimit(4);
             pfp.setOffset(0);
 
-            getUserProfilePhotos(pfp).getPhotos().listIterator(0).next();
+            execute(pfp).getPhotos().listIterator(0).next();
             return true;
 
         } catch (Exception e) {
@@ -216,21 +219,20 @@ public class MainBotClass extends TelegramLongPollingBot {
         }
     }
 
-    public void sendPfp(long chat_id, User user) {
+    void sendPfp(long chat_id, User user, Message message) {
         try {
             GetUserProfilePhotos pfp = new GetUserProfilePhotos();
             pfp.setUserId(user.getId());
             pfp.setLimit(4);
             pfp.setOffset(0);
 
-            List<PhotoSize> photos = getUserProfilePhotos(pfp).getPhotos().listIterator(0).next();
+            List<PhotoSize> photos = execute(pfp).getPhotos().listIterator(0).next();
 
             String f_id = photos.stream().sorted(Comparator.comparing(PhotoSize::getFileSize).reversed())
                     .findFirst().orElse(null).getFileId();
-
             sendPhotoMessage(chat_id, f_id);
         } catch (Exception e) {
-            sendTextMessage(chat_id, "No pfp");
+            sendTextMessage(chat_id, "No pfp", message);
         }
     }
 
@@ -246,7 +248,7 @@ public class MainBotClass extends TelegramLongPollingBot {
         }
     }
 
-    public void sendPhotoMessage(long chat_id, String photo_id) {
+    private void sendPhotoMessage(long chat_id, String photo_id) {
         SendPhoto msg = new SendPhoto()
                 .setPhoto(photo_id)
                 .setChatId(chat_id);
@@ -257,7 +259,7 @@ public class MainBotClass extends TelegramLongPollingBot {
         }
     }
 
-    public void sendPhotoMessage(String photoName, InputStream inputStream, long chat_id) {
+    void sendPhotoMessage(String photoName, InputStream inputStream, long chat_id) {
         SendPhoto msg = new SendPhoto()
                 .setNewPhoto(photoName, inputStream)
                 .setChatId(chat_id);
@@ -269,7 +271,7 @@ public class MainBotClass extends TelegramLongPollingBot {
 
     }
 
-    public void log(Update update, String botResponse) {
+    void log(Update update, String botResponse) {
         if (isBotCreatorPm(update)) {
             // don\'t log my pm
             return;
@@ -289,19 +291,19 @@ public class MainBotClass extends TelegramLongPollingBot {
                 message_text + botResponse + "\n=====================================================");
     }
 
-    public boolean memberJoinedChat(Update update) {
+    private boolean memberJoinedChat(Update update) {
         List<User> join_users = update.getMessage().getNewChatMembers();
         return (join_users != null && !join_users.isEmpty());
     }
 
-    public boolean memberLeftChat(Update update) {
+    private boolean memberLeftChat(Update update) {
         User left_user = update.getMessage().getLeftChatMember();
         return left_user != null;
     }
 
-    public String getUsername(long chat_id, Integer user_id) {
+    String getUsername(long chat_id, Integer user_id) {
         try {
-            User user = (getChatMember(new GetChatMember()
+            User user = (execute(new GetChatMember()
                     .setChatId(chat_id).setUserId(user_id))).getUser();
 
             return user.getUserName();
@@ -311,19 +313,19 @@ public class MainBotClass extends TelegramLongPollingBot {
         }
     }
 
-    public boolean isBot(User user) {
+    private boolean isBot(User user) {
         return user.getUserName().endsWith("bot");
     }
 
-    public boolean userIsAdmin(long chat_id, User user) {
+    boolean userIsAdmin(long chat_id, User user) {
         try {
             GetChatAdministrators chatAdministrators = new GetChatAdministrators();
             chatAdministrators.setChatId(chat_id);
-            List<ChatMember> administrators = getChatAdministrators(chatAdministrators);
+            List<ChatMember> administrators = execute(chatAdministrators);
 
             boolean is_admin = false;
-            for (int x = 0; x < administrators.size(); x++) {
-                if (administrators.get(x).getUser().getUserName().equals(user.getUserName())) {
+            for (ChatMember administrator : administrators) {
+                if (administrator.getUser().getUserName().equals(user.getUserName())) {
                     is_admin = true;
                     break;
                 }
@@ -336,16 +338,16 @@ public class MainBotClass extends TelegramLongPollingBot {
         }
     }
 
-    public boolean botIsAdmin(Update update) {
+    boolean botIsAdmin(Update update) {
         long chat_id = update.getMessage().getChatId();
         try {
             GetChatAdministrators chatAdministrators = new GetChatAdministrators();
             chatAdministrators.setChatId(chat_id);
-            List<ChatMember> administrators = getChatAdministrators(chatAdministrators);
+            List<ChatMember> administrators = execute(chatAdministrators);
 
             boolean bot_is_admin = false;
-            for (int x = 0; x < administrators.size(); x++) {
-                if (administrators.get(x).getUser().getUserName().equals(getBotUsername())) {
+            for (ChatMember administrator : administrators) {
+                if (administrator.getUser().getUserName().equals(getBotUsername())) {
                     bot_is_admin = true;
                     break;
                 }
@@ -358,18 +360,18 @@ public class MainBotClass extends TelegramLongPollingBot {
         }
     }
 
-    public boolean hasSticker(Update update) {
+    private boolean hasSticker(Update update) {
         return update.hasMessage() && update.getMessage().getSticker() != null;
     }
 
-    public void kickUser(long chat_id, User userToKick) {
+    void kickUser(long chat_id, User userToKick) {
         Integer user_id = userToKick.getId();
         try {
             KickChatMember kickChatMember = new KickChatMember()
                     .setChatId(chat_id)
                     .setUserId(user_id);
 
-            kickMember(kickChatMember);
+            execute(kickChatMember);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -379,13 +381,13 @@ public class MainBotClass extends TelegramLongPollingBot {
     // necessary to make bot run
     @Override
     public String getBotUsername() {
-        return "bittle_bot";
+        return Constants.BOT_USERNAME;
     }
 
     // necessary to make bot run
     @Override
     public String getBotToken() {
         // Return bot token from BotFather
-        return "419911698:AAG-6x2E2OrRfexMX3qtvFn-iAZcWrqR_c0";
+        return Constants.BOT_TOKEN;
     }
 }
