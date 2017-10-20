@@ -1,6 +1,6 @@
 package com.bittle.telegram;
 
-import com.bittle.telegram.Main.MainClass;
+import com.bittle.telegram.main.MainClass;
 import org.jetbrains.annotations.Contract;
 
 import java.awt.*;
@@ -20,7 +20,7 @@ public class ImageModifier {
 
             final BufferedImage image = ImageIO.read(new File(MainClass.directory.images_dir()+"sponge.jpg"));
 
-            String[] splitString = com.bittle.telegram.Text.StringUtils.splitString(str, 30);
+            String[] splitString = com.bittle.telegram.text.StringUtils.splitString(str, 30);
             int row = splitString.length;
 
             for (String aSplitString : splitString) {

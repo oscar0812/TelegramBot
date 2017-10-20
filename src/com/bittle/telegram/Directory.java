@@ -38,7 +38,7 @@ public class Directory {
     }
 
     public String games_dir() {
-        File a = new File(root.getAbsolutePath()+File.separator+"Games");
+        File a = new File(root.getAbsolutePath()+File.separator+"games");
         if (!a.exists())
             a.mkdir();
         return a.getPath() + File.separator;
