@@ -18,9 +18,9 @@ import java.util.List;
  * Created by oscartorres on 6/30/17.
  */
 
-public class BotMaintainer extends MainBotClass {
+class BotMaintainer extends MainBotClass {
 
-    public class CurrentGame {
+    private class CurrentGame {
         private String current_type_word = "";
         private String current_unscrambled_word = "";
         private String current_scramble_word = "";
@@ -65,7 +65,7 @@ public class BotMaintainer extends MainBotClass {
                 && !userIsAdmin(chat_id, message_sender)) {
 
             sendTextMessage(chat_id, "Message text too long! Limit: " +
-                    MainClass.perGroupBotConfig.getMaxTextLength() + "\nYour message length: " + message_text.length());
+                    MainClass.perGroupBotConfig.getMaxTextLength() + "\nYour message length: " + message_text.length(), message);
 
             // kick for long message
             kickUser(chat_id, message_sender);
@@ -74,7 +74,7 @@ public class BotMaintainer extends MainBotClass {
         if (!MainClass.perGroupBotConfig.isBotOn()) {
             // exit the function if bot is off
             if (isAdminOfBot(message_sender) && message_text_lower.equals("/check")) {
-                sendTextMessage(chat_id, "Bot is off.");
+                sendTextMessage(chat_id, "Bot is off.", message);
             }
 
             return;
@@ -121,24 +121,31 @@ public class BotMaintainer extends MainBotClass {
         } else if (message_text_lower.startsWith("/scores ")) {
             String restOfText = message_text_lower.substring(message_text_lower.indexOf(" ") + 1);
             restOfText = restOfText.trim();
-            if (restOfText.equals("type")) {
-                bot_say_this = games.getScores_type();
-            } else if (restOfText.equals("scramble")) {
-                bot_say_this = games.getScores_scramble();
+            switch (restOfText) {
+                case "type":
+                    bot_say_this = games.getScores_type();
+                    break;
+                case "scramble":
+                    bot_say_this = games.getScores_scramble();
 
-            } else if (restOfText.equals("taboo")) {
-                bot_say_this = games.getScores_taboo();
+                    break;
+                case "taboo":
+                    bot_say_this = games.getScores_taboo();
 
-            } else if (restOfText.equals("brick")) {
-                bot_say_this = games.getScores_brick() + "";
+                    break;
+                case "brick":
+                    bot_say_this = games.getScores_brick() + "";
 
-            } else if (restOfText.equals("hangman")) {
-                bot_say_this = games.getScores_hangman();
+                    break;
+                case "hangman":
+                    bot_say_this = games.getScores_hangman();
 
-            } else if (restOfText.equals("all")) {
-                // to avoid spam
-                sendTextMessage(message_sender.getId(), games.getScores_all());
-                bot_say_this = "Scores sent to " + message_sender.getUserName() + " in private message to avoid spam.";
+                    break;
+                case "all":
+                    // to avoid spam
+                    sendTextMessage(message_sender.getId(), games.getScores_all(), message);
+                    bot_say_this = "Scores sent to " + message_sender.getUserName() + " in private message to avoid spam.";
+                    break;
             }
 
         } else if (message_text_lower.startsWith("/admin ") && isBotCreator(message_sender)) {
@@ -148,13 +155,13 @@ public class BotMaintainer extends MainBotClass {
                 String username = getUsername(chat_id, user_id);
 
                 if (username.equals("null")) {
-                    sendTextMessage(chat_id, "Can\'t admin a user with no username.");
+                    sendTextMessage(chat_id, "Can\'t admin a user with no username.", message);
                 } else {
                     if (MainClass.GLOBAL_BOT_CONFIG.adminExists(user_id)) {
-                        sendTextMessage(chat_id, username + " is already a bot admin.");
+                        sendTextMessage(chat_id, username + " is already a bot admin.", message);
                     } else {
                         MainClass.GLOBAL_BOT_CONFIG.addNewAdmin(user_id, username);
-                        sendTextMessage(chat_id, username + " has been given bot admin privileges.");
+                        sendTextMessage(chat_id, username + " has been given bot admin privileges.", message);
                     }
                 }
 
@@ -169,28 +176,28 @@ public class BotMaintainer extends MainBotClass {
                 Integer user_id = Integer.parseInt(rest);
 
                 if (!MainClass.GLOBAL_BOT_CONFIG.adminExists(user_id)) {
-                    sendTextMessage(chat_id, "No admin by id " + user_id);
+                    sendTextMessage(chat_id, "No admin by id " + user_id, message);
                 } else {
                     MainClass.GLOBAL_BOT_CONFIG.removeAdmin(user_id);
-                    sendTextMessage(chat_id, getUsername(chat_id, user_id) + " is no longer a bot admin.");
+                    sendTextMessage(chat_id, getUsername(chat_id, user_id) + " is no longer a bot admin.", message);
                 }
 
             } catch (Exception e) {
                 // not a long in a string
                 if (!MainClass.GLOBAL_BOT_CONFIG.adminExists(rest)) {
-                    sendTextMessage(chat_id, "No admin with username of " + rest);
+                    sendTextMessage(chat_id, "No admin with username of " + rest, message);
                 } else {
                     MainClass.GLOBAL_BOT_CONFIG.removeAdmin(rest);
-                    sendTextMessage(chat_id, rest + " is no longer a bot admin.");
+                    sendTextMessage(chat_id, rest + " is no longer a bot admin.", message);
                 }
             }
-        } else if(message_text_lower.equals("/dev") && isBotCreator(message_sender)){
+        } else if (message_text_lower.equals("/dev") && isBotCreator(message_sender)) {
             bot_say_this = "Dev commands:\n\n(To add a bot admin)\n/admin <user id>\n\n" +
                     "(To remove a current bot admin)\n/remove <user id>\n/remove <user username>" +
                     "\n(Or replace /remove with /rem)\n\n(To stop the bot completely)\n/exit";
 
         } else if (message_text_lower.equals("/exit") && isBotCreator(message_sender)) {
-            sendTextMessage(chat_id, "Shutting down..");
+            sendTextMessage(chat_id, "Shutting down..", message);
             System.out.println("Bot shut down.");
             System.exit(0);
 
@@ -200,15 +207,15 @@ public class BotMaintainer extends MainBotClass {
                     .setChatId(chat_id);
 
             try {
-                sendTextMessage(chat_id, "Ok, bye.");
-                this.leaveChat(leaveChat);
+                sendTextMessage(chat_id, "Ok, bye.", message);
+                execute(leaveChat);
             } catch (Exception e) {
                 System.out.println("ERROR LEAVING CHAT\nID: " + chat_id);
             }
 
         } else if (message_text_lower.equals("/pfp")) {
             try {
-                sendPfp(chat_id, message_sender);
+                sendPfp(chat_id, message_sender, message);
 
             } catch (Exception e) {
                 System.out.println("ERROR TRYING TO GET PFP:\n" + e.toString());
@@ -217,14 +224,15 @@ public class BotMaintainer extends MainBotClass {
             try {
                 GetChatAdministrators chatAdministrators = new GetChatAdministrators();
                 chatAdministrators.setChatId(chat_id);
-                List<ChatMember> administrators = getChatAdministrators(chatAdministrators);
+                List<ChatMember> administrators = execute(chatAdministrators);
 
-                String all_str = "Group admins: \n";
-                for (int x = 0; x < administrators.size(); x++) {
-                    ChatMember member = administrators.get(x);
-                    all_str += ("@" + member.getUser().getUserName() + "\n");
+                StringBuilder builder = new StringBuilder("Group admins: \n");
+                for (ChatMember member : administrators) {
+                    builder.append("@");
+                    builder.append(member.getUser().getUserName());
+                    builder.append("\n");
                 }
-                bot_say_this = all_str.trim() + "\n\nBot admins:\n" + MainClass.GLOBAL_BOT_CONFIG.getAdmins();
+                bot_say_this = builder.toString().trim() + "\n\nBot admins:\n" + MainClass.GLOBAL_BOT_CONFIG.getAdmins();
 
             } catch (Exception e) {
                 System.out.println("ERROR GETTING ADMINS:\n" + e.toString());
@@ -267,10 +275,10 @@ public class BotMaintainer extends MainBotClass {
 
                 SetChatTitle title = new SetChatTitle().setChatId(chat_id).setTitle(restOfText);
 
-                if (setChatTitle(title)) {
-                    sendTextMessage(chat_id, "Set chat title");
+                if (execute(title)) {
+                    sendTextMessage(chat_id, "Set chat title", message);
                 } else {
-                    sendTextMessage(chat_id, "Couldn\'t set chat title");
+                    sendTextMessage(chat_id, "Couldn\'t set chat title", message);
                 }
 
             } catch (Exception e) {
@@ -283,7 +291,7 @@ public class BotMaintainer extends MainBotClass {
         }
 
         if (!bot_say_this.isEmpty()) {
-            sendTextMessage(chat_id, bot_say_this);
+            sendTextMessage(chat_id, bot_say_this, message);
         }
 
         // too many checks, so hangman has its own method
@@ -315,7 +323,7 @@ public class BotMaintainer extends MainBotClass {
             games.addToScore_type(username, 1);
             current.is_type = false;
             current.current_type_word = "";
-            sendTextMessage(chat_id, username + " has won!");
+            sendTextMessage(chat_id, username + " has won!", message);
         }
 
         // scramble game win
@@ -325,14 +333,15 @@ public class BotMaintainer extends MainBotClass {
             current.is_scramble = false;
             current.current_scramble_word = "";
             current.current_unscrambled_word = "";
-            sendTextMessage(chat_id, username + " has won!");
+            sendTextMessage(chat_id, username + " has won!", message);
         }
 
         // taboo game cheat
         if (current != null && current.is_taboo && message_text_lower.contains(current.current_taboo_word)
                 && message_sender.getUserName().equals(current.player_username)) {
             String username = message_sender.getUserName();
-            sendTextMessage(chat_id, username + " is a cheater!\n\n" + current.current_taboo_word + " was the word.");
+            sendTextMessage(chat_id, username + " is a cheater!\n\n" +
+                    current.current_taboo_word + " was the word.", message);
             current.is_taboo = false;
             current.current_taboo_word = "";
         }
@@ -343,72 +352,77 @@ public class BotMaintainer extends MainBotClass {
             games.addToScore_taboo(username, 1);
             current.is_taboo = false;
             current.current_taboo_word = "";
-            sendTextMessage(chat_id, username + " has won!");
+            sendTextMessage(chat_id, username + " has won!", message);
         }
 
-        if (message_text_lower.equals("/type")) {
+        switch (message_text_lower) {
+            case "/type":
 
-            if (currentGames.containsKey(chat_id)) {
-                CurrentGame game = currentGames.get(chat_id);
-                if (game.current_type_word.isEmpty()) {
+                if (currentGames.containsKey(chat_id)) {
+                    CurrentGame game = currentGames.get(chat_id);
+                    if (game.current_type_word.isEmpty()) {
+                        game.current_type_word = dictionary.getRandomWord();
+                        game.is_type = true;
+                    }
+
+                    bot_say_this = "Type: " + currentGames.get(chat_id).current_type_word;
+                } else {
+                    CurrentGame game = new CurrentGame(chat_id);
                     game.current_type_word = dictionary.getRandomWord();
                     game.is_type = true;
+                    currentGames.put(chat_id, game);
+
+                    bot_say_this = "Type: " + game.current_type_word;
                 }
 
-                bot_say_this = "Type: " + currentGames.get(chat_id).current_type_word;
-            } else {
-                CurrentGame game = new CurrentGame(chat_id);
-                game.current_type_word = dictionary.getRandomWord();
-                game.is_type = true;
-                currentGames.put(chat_id, game);
+                break;
+            case "/scramble":
+                if (currentGames.containsKey(chat_id)) {
+                    CurrentGame game = currentGames.get(chat_id);
+                    if (game.current_scramble_word.isEmpty()) {
+                        game.current_unscrambled_word = dictionary.getRandomWord();
+                        game.current_scramble_word = dictionary.scrambleWord(game.current_unscrambled_word);
+                        game.is_scramble = true;
+                    }
 
-                bot_say_this = "Type: " + game.current_type_word;
-            }
-
-        } else if (message_text_lower.equals("/scramble")) {
-            if (currentGames.containsKey(chat_id)) {
-                CurrentGame game = currentGames.get(chat_id);
-                if (game.current_scramble_word.isEmpty()) {
+                    bot_say_this = "Unscramble: " + game.current_scramble_word;
+                } else {
+                    CurrentGame game = new CurrentGame(chat_id);
                     game.current_unscrambled_word = dictionary.getRandomWord();
                     game.current_scramble_word = dictionary.scrambleWord(game.current_unscrambled_word);
                     game.is_scramble = true;
-                }
+                    currentGames.put(chat_id, game);
 
-                bot_say_this = "Unscramble: " + game.current_scramble_word;
-            } else {
-                CurrentGame game = new CurrentGame(chat_id);
-                game.current_unscrambled_word = dictionary.getRandomWord();
-                game.current_scramble_word = dictionary.scrambleWord(game.current_unscrambled_word);
-                game.is_scramble = true;
-                currentGames.put(chat_id, game);
-
-                bot_say_this = "Unscramble: " + game.current_scramble_word;
-            }
-        } else if (message_text_lower.equals("/taboo")) {
-            if (!message.getChat().isUserChat()) {
-                if (!currentGames.containsKey(chat_id)) {
-                    currentGames.put(chat_id, new CurrentGame(chat_id));
+                    bot_say_this = "Unscramble: " + game.current_scramble_word;
                 }
-                CurrentGame game = currentGames.get(chat_id);
-                if (!game.current_taboo_word.isEmpty()) {
-                    sendTextMessage(chat_id, game.player_username + " has the word.");
+                break;
+            case "/taboo":
+                if (!message.getChat().isUserChat()) {
+                    if (!currentGames.containsKey(chat_id)) {
+                        currentGames.put(chat_id, new CurrentGame(chat_id));
+                    }
+                    CurrentGame game = currentGames.get(chat_id);
+                    if (!game.current_taboo_word.isEmpty()) {
+                        sendTextMessage(chat_id, game.player_username + " has the word.", message);
+                    } else {
+                        game.current_taboo_word = dictionary.getRandomWord();
+                        game.player_username = message_sender.getUserName();
+                        game.is_taboo = true;
+                        sendTextMessage(message_sender.getId(), "Word is " + game.current_taboo_word, message);
+                        bot_say_this = ("Word sent to " + message_sender.getUserName());
+                    }
                 } else {
-                    game.current_taboo_word = dictionary.getRandomWord();
-                    game.player_username = message_sender.getUserName();
-                    game.is_taboo = true;
-                    sendTextMessage(message_sender.getId(), "Word is " + game.current_taboo_word);
-                    bot_say_this = ("Word sent to " + message_sender.getUserName());
+                    bot_say_this = "Taboo must be played in group chats.";
                 }
-            } else {
-                bot_say_this = "Taboo must be played in group chats.";
-            }
-        } else if (message_text_lower.equals("/brick")) {
-            games.addToScore_brick();
-            int bricks = games.getScores_brick();
-            if (bricks % 10 == 0 && bricks > 0)
-                sendTextMessage(chat_id, "The wall just got 10 feet taller!");
-            bot_say_this = bricks + " bricks on the wall! Keep building!";
+                break;
+            case "/brick":
+                games.addToScore_brick();
+                int bricks = games.getScores_brick();
+                if (bricks % 10 == 0 && bricks > 0)
+                    sendTextMessage(chat_id, "The wall just got 10 feet taller!", message);
+                bot_say_this = bricks + " bricks on the wall! Keep building!";
 
+                break;
         }
 
         return bot_say_this;
@@ -416,6 +430,7 @@ public class BotMaintainer extends MainBotClass {
 
     // takes care of hangman game
     private void hangmanGame(Update update) {
+        Message message = update.getMessage();
         String str = update.getMessage().getText().trim().toLowerCase();
         String username = update.getMessage().getFrom().getUserName();
         long chat_id = update.getMessage().getChatId();
@@ -433,7 +448,8 @@ public class BotMaintainer extends MainBotClass {
                 currentGame.hangman = new Hangman(new Dictionary().getRandomWord());
 
             sendTextMessage(chat_id, currentGame.hangman.getDrawing() + "\n\n" +
-                    currentGame.hangman.getCurrentString() + "\n\nGuesses: " + currentGame.hangman.getAllGuesses());
+                    currentGame.hangman.getCurrentString() +
+                    "\n\nGuesses: " + currentGame.hangman.getAllGuesses(), message);
 
         } else if (currentGame.hangman != null) {
             if (str.equals(currentGame.hangman.getCorrectAnswer()) || currentGame.hangman.isWin()) {
@@ -488,7 +504,7 @@ public class BotMaintainer extends MainBotClass {
             }
 
             if (!bot_say_this.isEmpty())
-                sendTextMessage(chat_id, bot_say_this);
+                sendTextMessage(chat_id, bot_say_this, message);
             log(update, bot_say_this);
         }
     }
@@ -508,83 +524,84 @@ public class BotMaintainer extends MainBotClass {
     }
 
     private void checkIfSettingCommand(Update update) {
+        Message message = update.getMessage();
         String message_text = update.getMessage().getText();
         String message_text_lower = message_text.toLowerCase();
         User message_sender = update.getMessage().getFrom();
         long chat_id = update.getMessage().getChatId();
 
         if (message_text_lower.equals("/off") && isAdminOfBot(message_sender) && MainClass.perGroupBotConfig.isBotOn()) {
-            sendTextMessage(chat_id, "Bot turned off.");
+            sendTextMessage(chat_id, "Bot turned off.", message);
             MainClass.perGroupBotConfig.setBotOn(false);
         } else if (message_text_lower.equals("/on") && !MainClass.perGroupBotConfig.isBotOn()) {
-            sendTextMessage(chat_id, "Bot turned on.");
+            sendTextMessage(chat_id, "Bot turned on.", message);
             MainClass.perGroupBotConfig.setBotOn(true);
 
         } else if (message_text_lower.equals("/games off") && MainClass.perGroupBotConfig.areGamesOn()) {
-            sendTextMessage(chat_id, "games turned off.");
+            sendTextMessage(chat_id, "games turned off.", message);
             MainClass.perGroupBotConfig.setGamesOn(false);
 
         } else if (message_text_lower.equals("/games on") && !MainClass.perGroupBotConfig.areGamesOn()) {
-            sendTextMessage(chat_id, "games turned on.");
+            sendTextMessage(chat_id, "games turned on.", message);
             MainClass.perGroupBotConfig.setGamesOn(true);
 
         } else if (message_text_lower.equals("/py off") && MainClass.perGroupBotConfig.isPyCommandOn()
                 && isAdminOfBot(message_sender)) {
-            sendTextMessage(chat_id, "Py command turned off.");
+            sendTextMessage(chat_id, "Py command turned off.", message);
             MainClass.perGroupBotConfig.setPyCommandOn(false);
 
         } else if (message_text_lower.equals("/py on") && !MainClass.perGroupBotConfig.isPyCommandOn()
                 && isAdminOfBot(message_sender)) {
-            sendTextMessage(chat_id, "Py command turned on.");
+            sendTextMessage(chat_id, "Py command turned on.", message);
             MainClass.perGroupBotConfig.setPyCommandOn(true);
 
         } else if (message_text_lower.equals("/welcome off") && MainClass.perGroupBotConfig.isWelcomeOn()) {
-            sendTextMessage(chat_id, "New users will not be greeted.");
+            sendTextMessage(chat_id, "New users will not be greeted.", message);
             MainClass.perGroupBotConfig.setWelcomeMessageOn(false);
 
         } else if (message_text_lower.equals("/welcome on") && !MainClass.perGroupBotConfig.isWelcomeOn()) {
-            sendTextMessage(chat_id, "New users will be greeted.");
+            sendTextMessage(chat_id, "New users will be greeted.", message);
             MainClass.perGroupBotConfig.setWelcomeMessageOn(true);
 
         } else if (message_text_lower.equals("/bye off") && MainClass.perGroupBotConfig.isByeOn()) {
-            sendTextMessage(chat_id, "Members will not be given a warm bye.");
+            sendTextMessage(chat_id, "Members will not be given a warm bye.", message);
             MainClass.perGroupBotConfig.setByeMessageOn(false);
         } else if (message_text_lower.equals("/bye on") && !MainClass.perGroupBotConfig.isByeOn()) {
-            sendTextMessage(chat_id, "Members will be given a warm bye.");
+            sendTextMessage(chat_id, "Members will be given a warm bye.", message);
             MainClass.perGroupBotConfig.setByeMessageOn(true);
         } else if (message_text_lower.equals("/antibot off") && MainClass.perGroupBotConfig.isAntiBotOn()) {
-            sendTextMessage(chat_id, "Anti-Bot turned off, bots allowed in this chat.");
+            sendTextMessage(chat_id, "Anti-Bot turned off, bots allowed in this chat.", message);
             MainClass.perGroupBotConfig.setAntiBotOn(false);
 
         } else if (message_text_lower.equals("/antibot on") && !MainClass.perGroupBotConfig.isAntiBotOn()) {
             if (!botIsAdmin(update)) {
-                sendTextMessage(chat_id, "Anti-Bot only works if this bot is admin.");
+                sendTextMessage(chat_id, "Anti-Bot only works if this bot is admin.", message);
             } else {
-                sendTextMessage(chat_id, "Anti-Bot turned on, bots not allowed in this chat.");
+                sendTextMessage(chat_id, "Anti-Bot turned on, bots not allowed in this chat.", message);
                 MainClass.perGroupBotConfig.setAntiBotOn(true);
             }
 
         } else if (message_text_lower.equals("/pfp off") && MainClass.perGroupBotConfig.needsPfp()) {
-            sendTextMessage(chat_id, "Profile pictures not needed from new members when joining.");
+            sendTextMessage(chat_id, "Profile pictures not needed from new members when joining.", message);
             MainClass.perGroupBotConfig.setPfpNeeded(false);
 
         } else if (message_text_lower.equals("/pfp on") && !MainClass.perGroupBotConfig.needsPfp()) {
             if (!botIsAdmin(update)) {
-                sendTextMessage(chat_id, "Pfp command only works if this bot is admin.");
+                sendTextMessage(chat_id, "Pfp command only works if this bot is admin.", message);
             } else {
-                sendTextMessage(chat_id, "Profile pictures needed from new members when joining.");
+                sendTextMessage(chat_id, "Profile pictures needed from new members when joining.", message);
                 MainClass.perGroupBotConfig.setPfpNeeded(true);
             }
 
         } else if (message_text_lower.startsWith("/setwelcome ")) {
             String restOfText = message_text.substring(message_text.indexOf(" "));
             MainClass.perGroupBotConfig.setWelcomeMessage(restOfText);
-            sendTextMessage(chat_id, "Welcome message set.");
+            sendTextMessage(chat_id, "Welcome message set.", message);
 
         } else if (message_text_lower.startsWith("/setbye ")) {
             String restOfText = message_text.substring(message_text.indexOf(" "));
             MainClass.perGroupBotConfig.setByeMessage(restOfText);
-            sendTextMessage(chat_id, "Bye message set.");
+            sendTextMessage(chat_id, "Bye message set.", message);
 
         } else if (message_text_lower.startsWith("/maxtext ")) {
             String restOfText = message_text.substring(message_text.indexOf(" ")).trim();
@@ -592,9 +609,9 @@ public class BotMaintainer extends MainBotClass {
                 int num = Integer.parseInt(restOfText);
                 if (num == 0 || num > Constants.MAX_MESSAGE_INT) {
                     sendTextMessage(chat_id,
-                            "Max message length should be between 1 and "+Constants.MAX_MESSAGE_INT);
+                            "Max message length should be between 1 and " + Constants.MAX_MESSAGE_INT, message);
                 } else {
-                    sendTextMessage(chat_id, "Max message length set to " + num);
+                    sendTextMessage(chat_id, "Max message length set to " + num, message);
                     MainClass.perGroupBotConfig.setMaxTextLength(num);
                 }
             } catch (Exception e) {
