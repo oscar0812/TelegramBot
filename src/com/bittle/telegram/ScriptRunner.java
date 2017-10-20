@@ -25,16 +25,16 @@ public class ScriptRunner {
                  Process p = pb.start();
 
                  BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
-                 String output = "";
+                 StringBuilder output = new StringBuilder();
                  String line;
                  while ((line = in.readLine()) != null) {
-                     output += line;
+                     output.append(line);
                  }
-                 if(output.contains("oscar")){
+                 if(output.indexOf("oscar")!=-1){
                      return "Personal information.";
                  }
                  else
-                    return output;
+                    return output.toString();
              } catch (Exception e) {
                  return "ERROR IN PYTHON CODE:\n" + e.toString();
              }
