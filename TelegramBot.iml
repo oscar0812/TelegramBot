@@ -7,8 +7,42 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="telegrambots-3.4-jar-with-dependencies" level="project" />
-    <orderEntry type="library" name="com.google.code.gson:gson:2.8.2" level="project" />
+    <orderEntry type="library" name="com.google.code.gson:gson:2.8.1" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/gtranslateapi-1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/jl1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$APPLICATION_HOME_DIR$/redist/annotations-java8.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="MathSolver" level="project" />
     <orderEntry type="library" name="org.jsoup:jsoup:1.10.3" level="project" />
+    <orderEntry type="library" name="w3c-dom" level="project" />
+    <orderEntry type="library" name="gson-2.6.2-javadoc" level="project" />
+    <orderEntry type="library" name="gson-2.8.2" level="project" />
+    <orderEntry type="library" name="MathSolver" level="project" />
+    <orderEntry type="library" name="telegrambots-3.1.2-jar-with-dependencies" level="project" />
+    <orderEntry type="library" name="w3c-dom" level="project" />
+    <orderEntry type="library" name="telegrambots-3.4-jar-with-dependencies" level="project" />
   </component>
 </module>
