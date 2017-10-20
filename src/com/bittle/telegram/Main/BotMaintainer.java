@@ -45,7 +45,7 @@ public class BotMaintainer extends MainBotClass {
     private final BotResponse botResponse = new BotResponse();
     private final Dictionary dictionary = new Dictionary();
 
-    ScoreKeeper games;
+    private ScoreKeeper games;
 
 
     // respond appropriate for the incoming update
