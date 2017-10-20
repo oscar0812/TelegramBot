@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
  */
 public class StringUtils {
 
-    public static String unicodeEscaped(char ch) {
+    private static String unicodeEscaped(char ch) {
         if (ch < 0x10) {
             return "\\u000" + Integer.toHexString(ch);
         } else if (ch < 0x100) {
@@ -20,12 +20,12 @@ public class StringUtils {
     }
 
     public static String StringToUnicode(String str) {
-        String all = "";
+        StringBuilder all = new StringBuilder();
         for (int x = 0; x < str.length(); x++) {
-            all += unicodeEscaped(str.charAt(x));
+            all.append( unicodeEscaped(str.charAt(x)) );
         }
 
-        return all;
+        return all.toString();
     }
 
     public static String[] splitString(String str, int maxChars) {
@@ -76,21 +76,17 @@ public class StringUtils {
         return matchEmo.find();
     }
 
-    public static String charToStr(char[] arr) {
+    static String charToStr(char[] arr) {
 
-        String all = "";
-        for (int x = 0; x < arr.length; x++) {
-            all += arr[x];
+        StringBuilder all = new StringBuilder();
+        for (char anArr : arr) {
+            all.append(anArr);
         }
 
-        return all;
+        return all.toString();
     }
 
-    public static boolean startWithNumber(String str) {
-        if (str.length() < 1) {
-            return false;
-        } else {
-            return str.charAt(0) >= '0' && str.charAt(0) <= '9';
-        }
+    static boolean startWithNumber(String str) {
+        return str.length() >= 1 && str.charAt(0) >= '0' && str.charAt(0) <= '9';
     }
 }
