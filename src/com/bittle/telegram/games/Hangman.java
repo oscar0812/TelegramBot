@@ -1,4 +1,4 @@
-package com.bittle.telegram.Games;
+package com.bittle.telegram.games;
 
 import java.util.ArrayList;
 

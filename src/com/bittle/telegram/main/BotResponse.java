@@ -1,6 +1,6 @@
-package com.bittle.telegram.Main;
+package com.bittle.telegram.main;
 
-import com.bittle.telegram.Text.*;
+import com.bittle.telegram.text.*;
 import com.bittle.telegram.WebCrawler;
 import org.javia.arity.MathSolver;
 import org.json.JSONArray;
@@ -77,7 +77,7 @@ public class BotResponse {
             result = str.substring(str.indexOf(" ") + 1);
             result = result.toLowerCase();
         } else if (lower.equals("/text")) {
-            result = "Text commands:\n\n/say <text>\n/lower <text>\n/caps <text>\n" +
+            result = "text commands:\n\n/say <text>\n/lower <text>\n/caps <text>\n" +
                     "/c <text>\n/f <text>\n/g <text>\n/j <text>\n/o <text>\n/u <text>";
         } else if (lower.startsWith("/math ")) {
             String restOfString = str.substring(str.indexOf(" ") + 1);
@@ -87,7 +87,7 @@ public class BotResponse {
             result = "Solve math equations!\n\nExample:\n!math 3+4+8*(pi*sin(60))+3";
 
         } else if (lower.equals("/games")) {
-            result = "Games:\n\n/type\n/scramble\n/taboo\n/brick\n/hangman\n\nTo see game rules " +
+            result = "games:\n\n/type\n/scramble\n/taboo\n/brick\n/hangman\n\nTo see game rules " +
                     "type info after the game style, like so:\n\n/type info";
 
         } else if (lower.equals("/ly")) {

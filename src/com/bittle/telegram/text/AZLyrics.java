@@ -1,4 +1,4 @@
-package com.bittle.telegram.Text;
+package com.bittle.telegram.text;
 
 import com.bittle.telegram.WebCrawler;
 import org.jsoup.Jsoup;

@@ -1,4 +1,4 @@
-package com.bittle.telegram.Text;
+package com.bittle.telegram.text;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

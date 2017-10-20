@@ -1,8 +1,8 @@
-package com.bittle.telegram.Main;
+package com.bittle.telegram.main;
 
-import com.bittle.telegram.Configurations.PerGroupBotConfig;
-import com.bittle.telegram.Games.ScoreKeeper;
-import com.bittle.telegram.Text.StringUtils;
+import com.bittle.telegram.config.PerGroupBotConfig;
+import com.bittle.telegram.games.ScoreKeeper;
+import com.bittle.telegram.text.StringUtils;
 import org.telegram.telegrambots.api.methods.GetFile;
 import org.telegram.telegrambots.api.methods.GetUserProfilePhotos;
 import org.telegram.telegrambots.api.methods.groupadministration.GetChatAdministrators;
@@ -145,7 +145,7 @@ public class MainBotClass extends TelegramLongPollingBot {
                 .setChatId(chat_id)
                 .setText(message_text);
         try {
-            sendMessage(message); // Sending our message object to user
+            execute(message); // Sending our message object to user
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }

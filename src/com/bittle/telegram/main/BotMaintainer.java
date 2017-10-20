@@ -1,11 +1,11 @@
-package com.bittle.telegram.Main;
+package com.bittle.telegram.main;
 
-import com.bittle.telegram.Games.Hangman;
-import com.bittle.telegram.Games.ScoreKeeper;
+import com.bittle.telegram.games.Hangman;
+import com.bittle.telegram.text.*;
+import com.bittle.telegram.games.ScoreKeeper;
 import com.bittle.telegram.ImageModifier;
 import com.bittle.telegram.ScriptRunner;
-import com.bittle.telegram.Text.Dictionary;
-import com.bittle.telegram.Text.StringUtils;
+import com.bittle.telegram.text.StringUtils;
 import org.telegram.telegrambots.api.methods.groupadministration.*;
 import org.telegram.telegrambots.api.objects.*;
 
@@ -108,7 +108,7 @@ public class BotMaintainer extends MainBotClass {
                     }
 
                     if (!all.trim().isEmpty())
-                        bot_say_this = "Games cleared:\n\n" + all.trim();
+                        bot_say_this = "games cleared:\n\n" + all.trim();
                     else
                         bot_say_this = "Nothing to reset.";
                     currentGames.remove(chat_id);
@@ -521,11 +521,11 @@ public class BotMaintainer extends MainBotClass {
             MainClass.perGroupBotConfig.setBotOn(true);
 
         } else if (message_text_lower.equals("/games off") && MainClass.perGroupBotConfig.areGamesOn()) {
-            sendTextMessage(chat_id, "Games turned off.");
+            sendTextMessage(chat_id, "games turned off.");
             MainClass.perGroupBotConfig.setGamesOn(false);
 
         } else if (message_text_lower.equals("/games on") && !MainClass.perGroupBotConfig.areGamesOn()) {
-            sendTextMessage(chat_id, "Games turned on.");
+            sendTextMessage(chat_id, "games turned on.");
             MainClass.perGroupBotConfig.setGamesOn(true);
 
         } else if (message_text_lower.equals("/py off") && MainClass.perGroupBotConfig.isPyCommandOn()

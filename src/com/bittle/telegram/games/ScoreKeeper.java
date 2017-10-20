@@ -1,6 +1,6 @@
-package com.bittle.telegram.Games;
+package com.bittle.telegram.games;
 
-import com.bittle.telegram.Main.MainClass;
+import com.bittle.telegram.main.MainClass;
 import org.telegram.telegrambots.api.objects.Update;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
@@ -89,7 +89,7 @@ public class ScoreKeeper {
             Element gameType5 = doc.createElement(BRICK_TAG);
             gameRoot.appendChild(gameType5);
 
-            // write the content into Games file
+            // write the content into games file
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
@@ -123,7 +123,7 @@ public class ScoreKeeper {
             Element gameType = doc.createElement(gameName);
             root.appendChild(gameType);
 
-            // write the content into Games file
+            // write the content into games file
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
@@ -158,7 +158,7 @@ public class ScoreKeeper {
                 score.appendChild(doc.createTextNode("" + 1));
                 player.appendChild(score);
 
-                // write the content into Games file
+                // write the content into games file
                 TransformerFactory transformerFactory = TransformerFactory.newInstance();
                 Transformer transformer = transformerFactory.newTransformer();
                 DOMSource source = new DOMSource(doc);
@@ -268,7 +268,7 @@ public class ScoreKeeper {
                     System.out.println(e.toString());
                 }
 
-                // write the content into Games file
+                // write the content into games file
                 TransformerFactory transformerFactory = TransformerFactory.newInstance();
                 Transformer transformer = transformerFactory.newTransformer();
                 DOMSource source = new DOMSource(doc);

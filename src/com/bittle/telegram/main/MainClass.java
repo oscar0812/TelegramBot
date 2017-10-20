@@ -1,7 +1,7 @@
-package com.bittle.telegram.Main;
+package com.bittle.telegram.main;
 
-import com.bittle.telegram.Configurations.GlobalBotConfig;
-import com.bittle.telegram.Configurations.PerGroupBotConfig;
+import com.bittle.telegram.config.GlobalBotConfig;
+import com.bittle.telegram.config.PerGroupBotConfig;
 import com.bittle.telegram.Directory;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.TelegramBotsApi;

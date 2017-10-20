@@ -1,6 +1,6 @@
-package com.bittle.telegram.Configurations;
+package com.bittle.telegram.config;
 
-import com.bittle.telegram.Main.MainClass;
+import com.bittle.telegram.main.MainClass;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.api.objects.User;
 import org.w3c.dom.Document;
@@ -29,14 +29,14 @@ public class PerGroupBotConfig {
             MainClass.directory.settings_dir();
 
     private final String BOT_ON_TAG = "Bot-On";
-    private final String GAMES_ON_TAG = "Games-On";
+    private final String GAMES_ON_TAG = "games-On";
     private final String ANTI_BOT_ON_TAG = "Anti-Bot-On";
     private final String NEED_PFP_TAG = "Need-Pfp";
     private final String PY_COMMAND_ON_TAG = "Py-Command-On";
     private final String WELCOME_MESSAGE_ON_TAG = "Welcome-Message-On";
     private final String BYE_MESSAGE_ON_TAG = "Bye-Message-On";
 
-    private final String MAX_TEXT_LENGTH_TAG = "Max-Text-Length";
+    private final String MAX_TEXT_LENGTH_TAG = "Max-text-Length";
     private final String WELCOME_MESSAGE_TAG = "Welcome-Message";
     private final String BYE_MESSAGE_TAG = "Bye-Message";
 
@@ -130,7 +130,7 @@ public class PerGroupBotConfig {
 
             nodeAttr.setTextContent(new_value);
 
-            // write the content into Games file
+            // write the content into games file
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
@@ -308,7 +308,7 @@ public class PerGroupBotConfig {
     public String getSettings() {
         // return all settings
         String all = "Bot on: " + bts(isBotOn()) + "\n";
-        all += "Games on: " + bts(areGamesOn()) + "\n";
+        all += "games on: " + bts(areGamesOn()) + "\n";
         all += "AntiBot on: " + bts(isAntiBotOn()) + "\n";
         all += "Pfp needed when joining: " + bts(needsPfp()) + "\n";
         all += "Py command on: " + bts(isPyCommandOn()) + "\n";

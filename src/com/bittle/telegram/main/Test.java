@@ -1,7 +1,6 @@
-package com.bittle.telegram.Main;
+package com.bittle.telegram.main;
 
-import com.bittle.telegram.Configurations.GlobalBotConfig;
-import com.bittle.telegram.Directory;
+import com.bittle.telegram.config.GlobalBotConfig;
 
 /**
  * Created by oscartorres on 6/23/17.

@@ -1,6 +1,6 @@
-package com.bittle.telegram.Configurations;
+package com.bittle.telegram.config;
 
-import com.bittle.telegram.Main.MainClass;
+import com.bittle.telegram.main.MainClass;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -75,7 +75,7 @@ public class GlobalBotConfig {
                 person.setAttribute("username", username);
                 root.appendChild(person);
 
-                // write the content into Games file
+                // write the content into games file
                 TransformerFactory transformerFactory = TransformerFactory.newInstance();
                 Transformer transformer = transformerFactory.newTransformer();
                 DOMSource source = new DOMSource(doc);
@@ -119,7 +119,7 @@ public class GlobalBotConfig {
 
             }
 
-            // write the content into Games file
+            // write the content into games file
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
