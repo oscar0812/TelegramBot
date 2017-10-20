@@ -15,22 +15,17 @@ import java.util.regex.Pattern;
  * Created by oscartorres on 6/27/17.
  */
 public class BotResponse {
-    private Update mainUpdate;
 
     public String getTextResponse(Update update) {
-        mainUpdate = update;
         String str = update.getMessage().getText();
         return getTextResponse(str, "");
     }
 
     private String getTextResponse(String str, String result) {
         String lower = removeCall(str.toLowerCase());
-
-        String user = mainUpdate.getMessage().getFrom().getUserName();
-
         if (lower.equals("/commands")) {
 
-            result = "Commands:\n\n/bittle/info\n/status\n/options\n/text" +
+            result = "Commands:\n\n/bittle\n/info\n/status\n/options\n/text" +
                     "\n/games\n/joke\n/roast <name>\n/mock <text>\n" +
                     "/ly <artist> <song name>\n/py <python script>\n/math <equation>\n" +
                     "/ud <text> [urban dictionary]\n/dict <word> [Meriam-Webster]\n/wiki <text> [Wikipedia]";
@@ -281,7 +276,7 @@ public class BotResponse {
 
     // uses WebCrawler.java to parse the Json text from the urban dictionary API
     // Then gets the definition and returns it as text
-    public String getUrbanDictionaryDef(String words) {
+    private String getUrbanDictionaryDef(String words) {
         String url = "http://api.urbandictionary.com/v0/define?term=" +
                 words.trim().replaceAll("\\s+", "+");
         WebCrawler reader = new WebCrawler(url);
@@ -291,7 +286,7 @@ public class BotResponse {
             int random = new Random().nextInt(jsonArray.length());
             def = jsonArray.getJSONObject(random).get("definition").toString();
 
-            return "/ud " + words + "\n\n" + def;
+            return def;
         } catch (org.json.JSONException e) {
             return "No definition found.";
         }
@@ -299,7 +294,7 @@ public class BotResponse {
 
     // uses WebCrawler.java to parse the Json text from the wikipedia API
     // Then gets the definition and returns it as text
-    public String getWikiSearch(String words) {
+    private String getWikiSearch(String words) {
         String words2 = words.trim().replaceAll("\\s+", "%20");
         String url = "https://en.wikipedia.org/w/api.php?format=json&action=" +
                 "query&prop=extracts&exintro=&explaintext=&titles=" + words2;
@@ -328,13 +323,13 @@ public class BotResponse {
 
     }
 
-    public String getMerianDefinition(String word) {
+    private String getMerianDefinition(String word) {
         String str = Dictionary.searchOnlineWord(word);
 
         if (str.toLowerCase().trim().equals("error"))
             return "No definition found for " + word + ".";
         else
-            return "/dict " + word + "\n\n" + (str.trim());
+            return str.trim();
     }
 
     public String getSongLyrics(String artist, String songName) {
@@ -351,9 +346,7 @@ public class BotResponse {
             int indexBefore = lower.indexOf("@bittle_bot") - 1;
 
             if (indexBefore >= 0) {
-                if (lower.charAt(indexBefore) != ' ') {
-                    lower = lower.replaceAll("@bittle_bot", "");
-                }
+                if (lower.charAt(indexBefore) != ' ') lower = lower.replaceAll("@" + Constants.BOT_USERNAME, "");
             }
 
         }
