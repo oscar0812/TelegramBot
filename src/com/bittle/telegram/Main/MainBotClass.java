@@ -30,11 +30,7 @@ public class MainBotClass extends TelegramLongPollingBot {
         botMaintainer = bm;
     }
 
-    // things to add: hangman
-
     public final int MESSAGE_MAX_CHARS = 4085;
-
-    public boolean sticker_stealer = true;
 
     public ScoreKeeper scoreKeeper;
 
@@ -55,9 +51,7 @@ public class MainBotClass extends TelegramLongPollingBot {
             } else if (update.getMessage().hasPhoto()) {
                 // photo stuff
 
-            }
-
-            else if (hasSticker(update)) {
+            } else if (hasSticker(update)) {
 
 
             } else {
@@ -120,8 +114,8 @@ public class MainBotClass extends TelegramLongPollingBot {
     }
 
     public boolean isBotCreator(User user) {
-        String name =user.getUserName();
-        return name.equals("OGBittle") || name.equals("Lexilovestacos") || name.equals("Disproven");
+        String name = user.getUserName();
+        return name.equals("OGBittle");
     }
 
     // checks if in pm of OGBittle
@@ -242,14 +236,14 @@ public class MainBotClass extends TelegramLongPollingBot {
         }
     }
 
-    public void sendPhotoMessage(long chat_id, PhotoSize photoSize){
+    public void sendPhotoMessage(long chat_id, PhotoSize photoSize) {
         try {
 
             java.io.File file = downloadPhotoByFilePath(getFilePath(photoSize));
-            sendImageUploadingAFile(file.getAbsolutePath(), chat_id+"");
+            sendImageUploadingAFile(file.getAbsolutePath(), chat_id + "");
             file.delete();
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -278,7 +272,7 @@ public class MainBotClass extends TelegramLongPollingBot {
     }
 
     public void log(Update update, String botResponse) {
-        if(isBotCreatorPm(update)){
+        if (isBotCreatorPm(update)) {
             // don\'t log my pm
             return;
         }
@@ -307,13 +301,13 @@ public class MainBotClass extends TelegramLongPollingBot {
         return left_user != null;
     }
 
-    public String getUsername(long chat_id, Integer user_id){
+    public String getUsername(long chat_id, Integer user_id) {
         try {
             User user = (getChatMember(new GetChatMember()
                     .setChatId(chat_id).setUserId(user_id))).getUser();
 
             return user.getUserName();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return "null";
         }
@@ -323,7 +317,7 @@ public class MainBotClass extends TelegramLongPollingBot {
         return user.getUserName().endsWith("bot");
     }
 
-    public boolean userIsAdmin(long chat_id, User user){
+    public boolean userIsAdmin(long chat_id, User user) {
         try {
             GetChatAdministrators chatAdministrators = new GetChatAdministrators();
             chatAdministrators.setChatId(chat_id);
