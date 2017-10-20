@@ -14,15 +14,15 @@ import java.util.regex.Pattern;
 /**
  * Created by oscartorres on 6/27/17.
  */
-public class BotResponse {
+class BotResponse {
 
-    public String getTextResponse(Update update) {
+    String getTextResponse(Update update) {
         String str = update.getMessage().getText();
         return getTextResponse(str, "");
     }
 
     private String getTextResponse(String str, String result) {
-        String lower = removeCall(str.toLowerCase());
+        String lower = StringUtils.removeCall(str.toLowerCase());
         if (lower.equals("/commands")) {
 
             result = "Commands:\n\n/bittle\n/info\n/status\n/options\n/text" +
@@ -332,24 +332,12 @@ public class BotResponse {
             return str.trim();
     }
 
-    public String getSongLyrics(String artist, String songName) {
+    private String getSongLyrics(String artist, String songName) {
         AZLyrics az = new AZLyrics(artist, songName);
         try {
             return az.getSongName() + " by " + az.getArtist() + ":\n\n" + az.getLyrics();
         } catch (Exception e) {
             return "No lyrics found for " + songName + " by " + artist + ".";
         }
-    }
-
-    private String removeCall(String lower) {
-        if (lower.contains("@bittle_bot")) {
-            int indexBefore = lower.indexOf("@bittle_bot") - 1;
-
-            if (indexBefore >= 0) {
-                if (lower.charAt(indexBefore) != ' ') lower = lower.replaceAll("@" + Constants.BOT_USERNAME, "");
-            }
-
-        }
-        return lower;
     }
 }

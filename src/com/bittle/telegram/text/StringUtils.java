@@ -1,5 +1,7 @@
 package com.bittle.telegram.text;
 
+import com.bittle.telegram.main.Constants;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -88,5 +90,19 @@ public class StringUtils {
 
     static boolean startWithNumber(String str) {
         return str.length() >= 1 && str.charAt(0) >= '0' && str.charAt(0) <= '9';
+    }
+
+    public static String removeCall(String lower) {
+        if (lower.contains("@"+ Constants.BOT_USERNAME)) {
+            int indexBefore = lower.indexOf("@"+Constants.BOT_USERNAME) - 1;
+
+            if (indexBefore >= 0) {
+                if (lower.charAt(indexBefore) != ' ') {
+                    lower = lower.replaceAll("@"+Constants.BOT_USERNAME, "");
+                }
+            }
+
+        }
+        return lower;
     }
 }

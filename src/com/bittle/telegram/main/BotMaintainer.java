@@ -55,7 +55,7 @@ class BotMaintainer extends MainBotClass {
         Message message = update.getMessage();
         long chat_id = message.getChatId();
         String message_text = message.getText();
-        message_text = removeCall(message_text);
+        message_text = StringUtils.removeCall(message_text);
         String message_text_lower = message_text.toLowerCase();
         User message_sender = message.getFrom();
 
@@ -306,7 +306,7 @@ class BotMaintainer extends MainBotClass {
         Message message = update.getMessage();
         long chat_id = message.getChatId();
         String message_text = message.getText();
-        message_text = removeCall(message_text);
+        message_text = StringUtils.removeCall(message_text);
         String message_text_lower = message_text.toLowerCase();
         User message_sender = message.getFrom();
 
@@ -507,20 +507,6 @@ class BotMaintainer extends MainBotClass {
                 sendTextMessage(chat_id, bot_say_this, message);
             log(update, bot_say_this);
         }
-    }
-
-    private String removeCall(String lower) {
-        if (lower.contains("@bittle_bot")) {
-            int indexBefore = lower.indexOf("@bittle_bot") - 1;
-
-            if (indexBefore >= 0) {
-                if (lower.charAt(indexBefore) != ' ') {
-                    lower = lower.replaceAll("@bittle_bot", "");
-                }
-            }
-
-        }
-        return lower;
     }
 
     private void checkIfSettingCommand(Update update) {
