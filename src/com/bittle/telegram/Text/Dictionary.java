@@ -10,7 +10,7 @@ import java.util.Random;
  * Created by oscartorres on 6/28/17.
  */
 public class Dictionary {
-    ArrayList<String> word_list = new ArrayList<>();
+    private ArrayList<String> word_list = new ArrayList<>();
 
     public Dictionary() {
         word_list.add("the");
@@ -1038,7 +1038,6 @@ public class Dictionary {
         String site = "https://www.merriam-webster.com/dictionary/" + word.toLowerCase();
         try {
             WebCrawler crawler = new WebCrawler(site);
-
             String html = crawler.getHtml();
             return getDefinitionFromHtml(html);
         } catch (Exception e) {
