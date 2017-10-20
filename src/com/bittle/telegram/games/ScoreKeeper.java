@@ -16,8 +16,6 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 /**
  * Created by oscartorres on 6/28/17
@@ -26,10 +24,10 @@ import java.util.Comparator;
 public class ScoreKeeper {
 
     private class UserAndScore {
-        public String user;
-        public String score;
+        String user;
+        String score;
 
-        public UserAndScore(Node u, Node s) {
+        UserAndScore(Node u, Node s) {
             user = u.getTextContent();
             score = s.getTextContent();
         }
@@ -62,7 +60,7 @@ public class ScoreKeeper {
         clearGames();
     }
 
-    public void clearGames() {
+    private void clearGames() {
         try {
 
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
@@ -102,14 +100,12 @@ public class ScoreKeeper {
 
             System.out.println("New File Created!");
 
-        } catch (ParserConfigurationException pce) {
+        } catch (ParserConfigurationException | TransformerException pce) {
             pce.printStackTrace();
-        } catch (TransformerException tfe) {
-            tfe.printStackTrace();
         }
     }
 
-    public void addNewGame(String gameName) {
+    private void addNewGame(String gameName) {
 
         try {
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
@@ -260,9 +256,7 @@ public class ScoreKeeper {
                 }
 
                 try {
-                    int number = Integer.parseInt(score.getTextContent());
-                    number += increment;
-
+                    int number = Integer.parseInt(score.getTextContent()) + increment;
                     score.setTextContent(number + "");
                 } catch (Exception e) {
                     System.out.println(e.toString());
@@ -275,14 +269,8 @@ public class ScoreKeeper {
                 StreamResult result = new StreamResult(new File(pathToXMLFile));
                 transformer.transform(source, result);
 
-            } catch (ParserConfigurationException pce) {
+            } catch (ParserConfigurationException | TransformerException | SAXException | IOException pce) {
                 pce.printStackTrace();
-            } catch (TransformerException tfe) {
-                tfe.printStackTrace();
-            } catch (IOException ioe) {
-                ioe.printStackTrace();
-            } catch (SAXException sae) {
-                sae.printStackTrace();
             }
         } else {
             addPlayer(username, gameStyle);
@@ -345,13 +333,10 @@ public class ScoreKeeper {
             }
 
             try {
-                Collections.sort(list, new Comparator<UserAndScore>() {
-                    @Override
-                    public int compare(UserAndScore o1, UserAndScore o2) {
-                        Integer a = Integer.parseInt(o1.score);
-                        Integer b = Integer.parseInt(o2.score);
-                        return b.compareTo(a);
-                    }
+                list.sort((o1, o2) -> {
+                    Integer a = Integer.parseInt(o1.score);
+                    Integer b = Integer.parseInt(o2.score);
+                    return b.compareTo(a);
                 });
             }catch (Exception e){
                 e.printStackTrace();
@@ -362,10 +347,12 @@ public class ScoreKeeper {
                 return list.get(0).score.trim();
             }
 
-            String text = "";
-            for (int x = 0; x < list.size(); x++) {
-                UserAndScore u = list.get(x);
-                text += u.user + ": " + u.score + "\n";
+            StringBuilder text = new StringBuilder();
+            for (UserAndScore u : list) {
+                text.append(u.user);
+                text.append(": ");
+                text.append(u.score);
+                text.append("\n");
             }
 
             String all;
@@ -382,7 +369,7 @@ public class ScoreKeeper {
             if (list.isEmpty()) {
                 return all + "No Scores.";
             } else
-                return all + text.trim();
+                return all + text.toString().trim();
 
         } catch (Exception e) {
             e.printStackTrace();
