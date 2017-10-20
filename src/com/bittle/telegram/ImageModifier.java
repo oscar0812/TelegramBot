@@ -1,7 +1,6 @@
 package com.bittle.telegram;
 
 import com.bittle.telegram.main.MainClass;
-import org.jetbrains.annotations.Contract;
 
 import java.awt.*;
 import java.awt.font.FontRenderContext;
@@ -77,7 +76,7 @@ public class ImageModifier {
         g.setColor(Color.white);
         g.drawString(str, x, y);
     }
-
+/*
     public static void printToDir(BufferedImage image, String name) {
         try {
             ImageIO.write(image, "png", new File(name));
@@ -85,6 +84,7 @@ public class ImageModifier {
             e.printStackTrace();
         }
     }
+    */
 
     public static InputStream bufferedImageToInputStream(BufferedImage img) {
         try {
@@ -105,30 +105,26 @@ public class ImageModifier {
                 arr[x] = (arr[x] + "").toLowerCase().charAt(0);
         }
 
-        String a = "";
-        for (int x = 0; x < arr.length; x++) {
-            a += arr[x];
+        StringBuilder all = new StringBuilder();
+        for (char anArr : arr) {
+            all.append(anArr);
         }
-        return a;
+        return all.toString();
     }
 
 
-    @Contract(pure = true)
     private static int shift_north(int p, int d) {
         return p - d;
     }
 
-    @Contract(pure = true)
     private static int shift_south(int p, int d) {
         return p + d;
     }
 
-    @Contract(pure = true)
     private static int shift_east(int p, int d) {
         return p + d;
     }
 
-    @Contract(pure = true)
     private static int shift_west(int p, int d) {
         return p - d;
     }
