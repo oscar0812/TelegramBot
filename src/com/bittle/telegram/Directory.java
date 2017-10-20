@@ -1,5 +1,7 @@
 package com.bittle.telegram;
 
+import com.bittle.telegram.main.Constants;
+
 import java.io.File;
 
 /**
@@ -12,7 +14,7 @@ public class Directory {
     public Directory() {
 
         File home = new File(System.getProperty("user.home"));
-        root = new File(home.getAbsolutePath()+File.separator+"Bittle_Bot");
+        root = new File(home.getAbsolutePath()+File.separator+ Constants.BOT_USERNAME);
 
         if(!root.exists()){
             if(root.mkdir()){
