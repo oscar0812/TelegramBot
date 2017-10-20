@@ -1,5 +1,6 @@
 package com.bittle.telegram.config;
 
+import com.bittle.telegram.main.Constants;
 import com.bittle.telegram.main.MainClass;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.api.objects.User;
@@ -92,7 +93,7 @@ public class PerGroupBotConfig {
             root.appendChild(byeOn);
 
             Element maxText = doc.createElement(MAX_TEXT_LENGTH_TAG);
-            maxText.setAttribute("int", "4085");
+            maxText.setAttribute("int", ""+ Constants.MAX_MESSAGE_INT);
             root.appendChild(maxText);
 
             Element welcomeMsg = doc.createElement(WELCOME_MESSAGE_TAG);
@@ -213,7 +214,7 @@ public class PerGroupBotConfig {
             return Integer.parseInt(value);
         } catch (Exception e) {
             e.printStackTrace();
-            return 4085;
+            return Constants.MAX_MESSAGE_INT;
         }
     }
 
@@ -280,8 +281,8 @@ public class PerGroupBotConfig {
     }
 
     public void setMaxTextLength(int max) {
-        if (max > 4085) {
-            max = 4085;
+        if (max > Constants.MAX_MESSAGE_INT) {
+            max = Constants.MAX_MESSAGE_INT;
         }
 
         change_values(MAX_TEXT_LENGTH_TAG, "int", ("" + max));
