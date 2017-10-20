@@ -13,10 +13,10 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
 public class MainClass {
 
     public static final Directory directory = new Directory();
-    public static final GlobalBotConfig GLOBAL_BOT_CONFIG = new GlobalBotConfig();
-    public static PerGroupBotConfig perGroupBotConfig;
+    static final GlobalBotConfig GLOBAL_BOT_CONFIG = new GlobalBotConfig();
+    static PerGroupBotConfig perGroupBotConfig;
 
-    public void startBot(){
+    private void startBot(){
 
         // Initialize Api Context
         ApiContextInitializer.init();
