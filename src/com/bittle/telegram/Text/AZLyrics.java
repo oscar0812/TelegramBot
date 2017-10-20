@@ -50,12 +50,13 @@ public class AZLyrics {
 
             String lyrics = extractLyricsFromHtml(html);
 
-            if(lyrics.equals("error"))
+            if (lyrics.equals("error"))
                 throw new Exception();
             else
                 currentSong = new Song(o_artist, o_songName, lyrics);
 
-        } catch (Exception ignored){}
+        } catch (Exception ignored) {
+        }
     }
 
     private String extractLyricsFromHtml(String html) {
@@ -71,7 +72,7 @@ public class AZLyrics {
             lyrics = lyrics.replaceAll(" enter_here ", "\n").replaceAll("enter_here", "\n");
 
             return lyrics.trim();
-        }catch (Exception e){
+        } catch (Exception e) {
             return "error";
         }
     }
@@ -88,8 +89,8 @@ public class AZLyrics {
         return currentSong.song_name;
     }
 
-    private String capFirstLetter(String str){
+    private String capFirstLetter(String str) {
         str = str.toLowerCase().trim();
-        return (str.charAt(0)+"").toUpperCase()+str.substring(1);
+        return (str.charAt(0) + "").toUpperCase() + str.substring(1);
     }
 }
