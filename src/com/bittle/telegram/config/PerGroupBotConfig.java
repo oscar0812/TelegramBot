@@ -209,6 +209,9 @@ public class PerGroupBotConfig {
 
     public int getMaxTextLength() {
         String value = get_values(MAX_TEXT_LENGTH_TAG, "int");
+        if(value == null){
+            return Constants.MAX_MESSAGE_INT;
+        }
 
         try {
             return Integer.parseInt(value);
@@ -223,12 +226,13 @@ public class PerGroupBotConfig {
     }
 
     public String getWelcomeMessage(List<User> list) {
-        String members = "";
-        for (int x = 0; x < list.size(); x++) {
-            members += list.get(x).getUserName() + " ";
+        StringBuilder accumulator = new StringBuilder();
+        for (User aList : list) {
+            accumulator.append(aList.getUserName());
+            accumulator.append(" ");
         }
 
-        members = members.trim().replaceAll("\\s+", ", ").trim();
+        String members = accumulator.toString().trim().replaceAll("\\s+", ", ").trim();
 
         String value = get_values(WELCOME_MESSAGE_TAG, "String");
 
