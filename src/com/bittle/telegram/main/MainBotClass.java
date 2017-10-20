@@ -30,8 +30,6 @@ public class MainBotClass extends TelegramLongPollingBot {
         botMaintainer = bm;
     }
 
-    public final int MESSAGE_MAX_CHARS = 4085;
-
     public ScoreKeeper scoreKeeper;
 
     private BotMaintainer botMaintainer = null;
@@ -132,7 +130,7 @@ public class MainBotClass extends TelegramLongPollingBot {
     }
 
     public void sendTextMessage(long chat_id, String message_text) {
-        String[] strings = StringUtils.splitString(message_text, MESSAGE_MAX_CHARS);
+        String[] strings = StringUtils.splitString(message_text, Constants.MAX_MESSAGE_INT);
 
         for (int x = 0; x < strings.length; x++) {
             sendTextMessageHelper(chat_id, strings[x]);
