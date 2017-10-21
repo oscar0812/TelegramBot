@@ -22,8 +22,11 @@ import java.util.List;
 
 /**
  * Created by oscartorres on 7/6/17.
- * Holds the values to be stored and loaded for the bot
  */
+
+// takes care of group configurations, such as
+// what settings are set for what specific group
+// gives groups more freedom
 public class PerGroupBotConfig {
 
     private String PATH_TO_XML_FILE =

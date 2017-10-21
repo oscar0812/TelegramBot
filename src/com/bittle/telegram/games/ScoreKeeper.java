@@ -20,7 +20,7 @@ import java.util.ArrayList;
 /**
  * Created by oscartorres on 6/28/17
  */
-
+// takes care of game scores
 public class ScoreKeeper {
 
     private class UserAndScore {

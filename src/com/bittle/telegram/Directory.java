@@ -33,7 +33,7 @@ public class Directory {
     }
 
     public String images_dir() {
-        File a = new File(root.getAbsolutePath()+File.separator+"Images");
+        File a = new File(root.getAbsolutePath()+File.separator+"img");
         if (!a.exists())
             a.mkdir();
         return a.getPath() + File.separator;
@@ -47,21 +47,21 @@ public class Directory {
     }
 
     public String fonts_dir() {
-        File a = new File(root.getAbsolutePath()+File.separator+"Fonts");
+        File a = new File(root.getAbsolutePath()+File.separator+"fonts");
         if (!a.exists())
             a.mkdir();
         return a.getPath() + File.separator;
     }
 
     public String settings_dir() {
-        File a = new File(root.getAbsolutePath()+File.separator+"Settings");
+        File a = new File(root.getAbsolutePath()+File.separator+"settings");
         if (!a.exists())
             a.mkdir();
         return a.getPath() + File.separator;
     }
 
     public String global_dir(){
-        File a = new File(root.getAbsolutePath()+File.separator+"Global");
+        File a = new File(root.getAbsolutePath()+File.separator+"global");
         if(!a.exists())
             a.mkdir();
         return a.getPath() + File.separator;

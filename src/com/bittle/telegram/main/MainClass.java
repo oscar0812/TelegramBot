@@ -10,6 +10,8 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
 /**
  * Created by oscartorres on 6/21/17.
  */
+
+// entrance to project
 public class MainClass {
 
     public static final Directory directory = new Directory();

@@ -10,6 +10,7 @@ import java.io.*;
 import java.util.Random;
 import javax.imageio.ImageIO;
 
+// for /mock command
 public class ImageModifier {
 
     public static BufferedImage mockImage(String str) {

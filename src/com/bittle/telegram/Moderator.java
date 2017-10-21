@@ -2,9 +2,9 @@ package com.bittle.telegram;
 
 /**
  * Created by oscartorres on 6/28/17.
- *
- * Contains bad words and other bad things to filter and moderate
  */
+
+// Contains bad words and other bad things to filter and moderate
 public class Moderator {
 
     private final static String[] bad_words = {"a55", "a55hole", "aeolus", "ahole", "anal", "analprobe", "anilingus", "anus",

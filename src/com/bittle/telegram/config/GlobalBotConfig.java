@@ -19,6 +19,9 @@ import java.io.File;
 /**
  * Created by oscartorres on 7/15/17.
  */
+
+// takes care of global configurations, such as
+// who is admin
 public class GlobalBotConfig {
 
     private final String ROOT_PATH =

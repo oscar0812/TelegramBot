@@ -9,6 +9,8 @@ import java.io.InputStreamReader;
  * Created by oscartorres on 6/27/17.
  */
 
+// allows user to run commands such as /py,
+// careful with this
 public class ScriptRunner {
      public static String python(String prg) {
          if (prg.contains("ping")) {

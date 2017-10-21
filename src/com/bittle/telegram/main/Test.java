@@ -5,6 +5,8 @@ import com.bittle.telegram.config.GlobalBotConfig;
 /**
  * Created by oscartorres on 6/23/17.
  */
+
+// to test stuff
 public class Test {
 
     public static void main(String[] args) {

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 /**
  * Created by oscartorres on 7/2/17.
  */
+
+// Takes care of hangman game logic
 public class Hangman {
 
     private class MyChar {
