@@ -14,80 +14,34 @@ import java.util.regex.Pattern;
 /**
  * Created by oscartorres on 6/27/17.
  */
+
+// only called by BotMaintainer when it doesn't find any response,
+// this class has all commands that are not admin or game related
 class BotResponse {
+    private StringCommands stringCommands = new StringCommands();
 
     String getTextResponse(Update update) {
         String str = update.getMessage().getText();
-        return getTextResponse(str, "");
-    }
-
-    private String getTextResponse(String str, String result) {
         String lower = StringUtils.removeCall(str.toLowerCase());
-        if (lower.equals("/commands")) {
+        String result = stringCommands.get(lower);
 
-            result = "Commands:\n\n/bittle\n/info\n/status\n/options\n/text" +
-                    "\n/games\n/joke\n/roast <name>\n/mock <text>\n" +
-                    "/ly <artist> <song name>\n/py <python script>\n/math <equation>\n" +
-                    "/ud <text> [urban dictionary]\n/dict <word> [Meriam-Webster]\n/wiki <text> [Wikipedia]";
-
-        } else if (lower.equals("/bittle")) {
-            result = "Bittle is my creator! You can chat and ask questions at\n\nt.me/OGBittle";
-
-        } else if (lower.equals("/status")) {
-            result = MainClass.perGroupBotConfig.getSettings();
-
-        } else if (lower.equals("/options")) {
-            result = "The following are bot options:\n\nTo start or stop games:\n/games on\n" +
-                    "/games off\n\nTo set max text length:\n/maxtext <number>" +
-                    "\n\nTo allow/disallow other bots in chat:\n/antibot on\n/antibot off" +
-                    "\n\nTo allow/disallow members to join without profile pictures:\n/pfp on\n/pfp off" +
-                    "\n\nTo allow/disallow bot to greet new members:\n/welcome off\n/welcome on" +
-                    "\n\nTo allow/disallow bot to say farewell to members:\n/bye off\n/bye on" +
-                    "\n\nTo set greeting of new members " +
-                    "(type _user_ where you want the username to go):\n/setwelcome <text>" +
-                    "\n\nTo set farewell message " +
-                    "(type _user_ where you want the username to go):\n/setbye <text>";
-
-        } else if (lower.equals("/welcome")) {
-            String onOff = MainClass.perGroupBotConfig.isWelcomeOn() ? "on" : "off";
-            result = "Welcome message is " + onOff + ".\n\nWelcome message: \n" +
-                    "" + MainClass.perGroupBotConfig.getWelcomeMessage() + "\n\nTo set welcome message:\n/setwelcome <text>";
-
-        } else if (lower.equals("/bye")) {
-            String onOff = MainClass.perGroupBotConfig.isByeOn() ? "on" : "off";
-            result = "Bye message is " + onOff + ".\n\nBye message: \n" +
-                    "" + MainClass.perGroupBotConfig.getByeMessage() + "\n\nTo set welcome message:\n/setwelcome <text>";
-
-        } else if (lower.startsWith("/say ")) {
-            // just repeats what user says after !say
+        if(!result.isEmpty()){
+            return result;
+        }
+        if (lower.startsWith("/say ")) {
             result = str.substring(str.indexOf(" ") + 1);
 
         } else if (lower.startsWith("/caps ")) {
-            // capitalize a string
             result = str.substring(str.indexOf(" ") + 1);
             result = result.toUpperCase();
 
         } else if (lower.startsWith("/lower ")) {
-            // lowercase a string
             result = str.substring(str.indexOf(" ") + 1);
             result = result.toLowerCase();
-        } else if (lower.equals("/text")) {
-            result = "text commands:\n\n/say <text>\n/lower <text>\n/caps <text>\n" +
-                    "/c <text>\n/f <text>\n/g <text>\n/j <text>\n/o <text>\n/u <text>";
         } else if (lower.startsWith("/math ")) {
             String restOfString = str.substring(str.indexOf(" ") + 1);
             result = MathSolver.solve(restOfString);
 
-        } else if (lower.equals("/math")) {
-            result = "Solve math equations!\n\nExample:\n!math 3+4+8*(pi*sin(60))+3";
-
-        } else if (lower.equals("/games")) {
-            result = "games:\n\n/type\n/scramble\n/taboo\n/brick\n/hangman\n\nTo see game rules " +
-                    "type info after the game style, like so:\n\n/type info";
-
-        } else if (lower.equals("/ly")) {
-            result = "Get song lyrics!\n\nExample:\n\n/ly Eminem_Beautiful\n\nMust contain _ " +
-                    "to separate artist from song name";
         } else if (lower.startsWith("/ly ")) {
             int index = lower.indexOf("_");
             if (index < 0) {
@@ -99,47 +53,10 @@ class BotResponse {
 
                 result = getSongLyrics(artist, songName);
             }
-        } else if (lower.equals("/dict")) {
-            result = "Get a definition from a professional online dictionary!\n\nExample:\n\n/dict hello";
         } else if (lower.startsWith("/dict ")) {
             String restOfString = str.substring(str.indexOf(" ") + 1);
             result = getMerianDefinition(restOfString);
 
-        } else if (lower.equals("/scores")) {
-            result = "To get game scores send:\n\n/scores type\n/scores scramble\n" +
-                    "/scores taboo\n/scores brick\n/scores hangman\n\n" +
-                    "Or do\n\n/scores all\n\nTo get all scores in private message.";
-
-        } else if (lower.trim().replaceAll("\\s+", " ").equals("/type info")) {
-
-            result = "Type game info: \n\nTo play send /type in any group, " +
-                    "first person to type the given word wins! To get scores do\n\n/scores type";
-
-        } else if (lower.trim().replaceAll("\\s+", " ").equals("/scramble info")) {
-
-            result = "Scramble game info: \n\nTo play send /scramble in any group, " +
-                    "first person to unscramble the given scrambled word wins! To get scores do\n\n/scores scramble";
-
-        } else if (lower.trim().replaceAll("\\s+", " ").equals("/taboo info")) {
-
-            result = "Taboo game info: \n\nTo play send /taboo in any group, " +
-                    "a word will be sent to the person who sent /taboo. That person will " +
-                    "gives clues to the group about that word, but if the person accidentally mentions " +
-                    "the word the game is over. To get scores do\n\n/scores taboo";
-
-        } else if (lower.trim().replaceAll("\\s+", " ").equals("/brick info")) {
-            result = "Brick game info: \n\nTo play send /brick in any group, " +
-                    "a brick will be added to the wall! Keep building to keep " +
-                    "unwanted threats out!";
-
-        } else if (lower.trim().replaceAll("\\s+", " ").equals("/hangman info")) {
-            result = "Hangman game info: \n\nTo play send /hangman in any group, " +
-                    "guess the word, or guess character by character until the game finishes." +
-                    " Be aware that you have only 7 tries! To guess a character simply send a message" +
-                    " with only one character.";
-
-        } else if (lower.equals("kitty")) {
-            result = "Meow!";
         }
         //else if(Moderator.containsBadWord(lower)) {
         //    result = "Bad words found: " + Moderator.getBadwordsFromString(lower);
@@ -158,8 +75,6 @@ class BotResponse {
                 result = lower.replace("u", " no u").
                         replaceAll("\\s+", " ");
             }
-        } else if (lower.equals("/ud")) {
-            result = "Get a definition from urban dictionary!\n\nExample:\n\n/ud bittle";
         } else if (lower.startsWith("/ud ")) {
             // get the urban dictionary text using Json
             String words = str.substring(str.indexOf(" ") + 1);
@@ -170,9 +85,9 @@ class BotResponse {
             String words = str.substring(str.indexOf(" ") + 1);
             result = getWikiSearch(words).trim();
 
-        } else if (!str.startsWith("!") && str.endsWith("ing")) {
+        } else if (!str.startsWith("/") && str.endsWith("ing")) {
             result = str.substring(0, str.lastIndexOf("ing")) + "ong";
-        } else if (!str.startsWith("!") && str.endsWith("ong")) {
+        } else if (!str.startsWith("/") && str.endsWith("ong")) {
             result = str.substring(0, str.lastIndexOf("ong")) + "ing";
 
         } else if (lower.startsWith("/8ball ")) {
