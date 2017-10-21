@@ -18,6 +18,9 @@ import java.util.List;
  * Created by oscartorres on 6/30/17.
  */
 
+// This class takes care of games and how they function
+// This class call BotResponse if it doesn't find any
+// match for the input string
 class BotMaintainer extends MainBotClass {
 
     private class CurrentGame {
@@ -40,9 +43,9 @@ class BotMaintainer extends MainBotClass {
         }
     }
 
-    private HashMap<Long, CurrentGame> currentGames = new HashMap<Long, CurrentGame>();
+    // to play separate games on separate groups
+    private HashMap<Long, CurrentGame> currentGames = new HashMap<>();
 
-    private final BotResponse botResponse = new BotResponse();
     private final Dictionary dictionary = new Dictionary();
 
     private ScoreKeeper games;
@@ -61,17 +64,17 @@ class BotMaintainer extends MainBotClass {
 
         checkIfSettingCommand(update);
 
-        if (message_text.length() > MainClass.perGroupBotConfig.getMaxTextLength()
+        if (message_text.length() > MainClass.PER_GROUP_BOT_CONFIG.getMaxTextLength()
                 && !userIsAdmin(chat_id, message_sender)) {
 
             sendTextMessage(chat_id, "Message text too long! Limit: " +
-                    MainClass.perGroupBotConfig.getMaxTextLength() + "\nYour message length: " + message_text.length(), message);
+                    MainClass.PER_GROUP_BOT_CONFIG.getMaxTextLength() + "\nYour message length: " + message_text.length(), message);
 
             // kick for long message
             kickUser(chat_id, message_sender);
         }
 
-        if (!MainClass.perGroupBotConfig.isBotOn()) {
+        if (!MainClass.PER_GROUP_BOT_CONFIG.isBotOn()) {
             // exit the function if bot is off
             if (isAdminOfBot(message_sender) && message_text_lower.equals("/check")) {
                 sendTextMessage(chat_id, "Bot is off.", message);
@@ -251,7 +254,7 @@ class BotMaintainer extends MainBotClass {
                     + "\nLast name: " + user_last_name
                     + "\nUsername: " + user_username
                     + "\nID: " + user_id;
-        } else if (message_text_lower.startsWith("/py ") && MainClass.perGroupBotConfig.isPyCommandOn()) {
+        } else if (message_text_lower.startsWith("/py ") && MainClass.PER_GROUP_BOT_CONFIG.isPyCommandOn()) {
             String script = message_text.substring(message_text.indexOf(" ") + 1).trim();
             //  "print(\"print this!\")"
             bot_say_this = ScriptRunner.python(script);
@@ -287,7 +290,7 @@ class BotMaintainer extends MainBotClass {
 
         } else if (bot_say_this.isEmpty()) {
             // if still empty, check if its a regular text command
-            bot_say_this = botResponse.getTextResponse(update);
+            bot_say_this = new BotResponse().getTextResponse(update);
         }
 
         if (!bot_say_this.isEmpty()) {
@@ -311,7 +314,7 @@ class BotMaintainer extends MainBotClass {
         User message_sender = message.getFrom();
 
 
-        if (!MainClass.perGroupBotConfig.areGamesOn()) {
+        if (!MainClass.PER_GROUP_BOT_CONFIG.areGamesOn()) {
             return "";
         }
 
@@ -516,77 +519,77 @@ class BotMaintainer extends MainBotClass {
         User message_sender = update.getMessage().getFrom();
         long chat_id = update.getMessage().getChatId();
 
-        if (message_text_lower.equals("/off") && isAdminOfBot(message_sender) && MainClass.perGroupBotConfig.isBotOn()) {
+        if (message_text_lower.equals("/off") && isAdminOfBot(message_sender) && MainClass.PER_GROUP_BOT_CONFIG.isBotOn()) {
             sendTextMessage(chat_id, "Bot turned off.", message);
-            MainClass.perGroupBotConfig.setBotOn(false);
-        } else if (message_text_lower.equals("/on") && !MainClass.perGroupBotConfig.isBotOn()) {
+            MainClass.PER_GROUP_BOT_CONFIG.setBotOn(false);
+        } else if (message_text_lower.equals("/on") && !MainClass.PER_GROUP_BOT_CONFIG.isBotOn()) {
             sendTextMessage(chat_id, "Bot turned on.", message);
-            MainClass.perGroupBotConfig.setBotOn(true);
+            MainClass.PER_GROUP_BOT_CONFIG.setBotOn(true);
 
-        } else if (message_text_lower.equals("/games off") && MainClass.perGroupBotConfig.areGamesOn()) {
+        } else if (message_text_lower.equals("/games off") && MainClass.PER_GROUP_BOT_CONFIG.areGamesOn()) {
             sendTextMessage(chat_id, "games turned off.", message);
-            MainClass.perGroupBotConfig.setGamesOn(false);
+            MainClass.PER_GROUP_BOT_CONFIG.setGamesOn(false);
 
-        } else if (message_text_lower.equals("/games on") && !MainClass.perGroupBotConfig.areGamesOn()) {
+        } else if (message_text_lower.equals("/games on") && !MainClass.PER_GROUP_BOT_CONFIG.areGamesOn()) {
             sendTextMessage(chat_id, "games turned on.", message);
-            MainClass.perGroupBotConfig.setGamesOn(true);
+            MainClass.PER_GROUP_BOT_CONFIG.setGamesOn(true);
 
-        } else if (message_text_lower.equals("/py off") && MainClass.perGroupBotConfig.isPyCommandOn()
+        } else if (message_text_lower.equals("/py off") && MainClass.PER_GROUP_BOT_CONFIG.isPyCommandOn()
                 && isAdminOfBot(message_sender)) {
             sendTextMessage(chat_id, "Py command turned off.", message);
-            MainClass.perGroupBotConfig.setPyCommandOn(false);
+            MainClass.PER_GROUP_BOT_CONFIG.setPyCommandOn(false);
 
-        } else if (message_text_lower.equals("/py on") && !MainClass.perGroupBotConfig.isPyCommandOn()
+        } else if (message_text_lower.equals("/py on") && !MainClass.PER_GROUP_BOT_CONFIG.isPyCommandOn()
                 && isAdminOfBot(message_sender)) {
             sendTextMessage(chat_id, "Py command turned on.", message);
-            MainClass.perGroupBotConfig.setPyCommandOn(true);
+            MainClass.PER_GROUP_BOT_CONFIG.setPyCommandOn(true);
 
-        } else if (message_text_lower.equals("/welcome off") && MainClass.perGroupBotConfig.isWelcomeOn()) {
+        } else if (message_text_lower.equals("/welcome off") && MainClass.PER_GROUP_BOT_CONFIG.isWelcomeOn()) {
             sendTextMessage(chat_id, "New users will not be greeted.", message);
-            MainClass.perGroupBotConfig.setWelcomeMessageOn(false);
+            MainClass.PER_GROUP_BOT_CONFIG.setWelcomeMessageOn(false);
 
-        } else if (message_text_lower.equals("/welcome on") && !MainClass.perGroupBotConfig.isWelcomeOn()) {
+        } else if (message_text_lower.equals("/welcome on") && !MainClass.PER_GROUP_BOT_CONFIG.isWelcomeOn()) {
             sendTextMessage(chat_id, "New users will be greeted.", message);
-            MainClass.perGroupBotConfig.setWelcomeMessageOn(true);
+            MainClass.PER_GROUP_BOT_CONFIG.setWelcomeMessageOn(true);
 
-        } else if (message_text_lower.equals("/bye off") && MainClass.perGroupBotConfig.isByeOn()) {
+        } else if (message_text_lower.equals("/bye off") && MainClass.PER_GROUP_BOT_CONFIG.isByeOn()) {
             sendTextMessage(chat_id, "Members will not be given a warm bye.", message);
-            MainClass.perGroupBotConfig.setByeMessageOn(false);
-        } else if (message_text_lower.equals("/bye on") && !MainClass.perGroupBotConfig.isByeOn()) {
+            MainClass.PER_GROUP_BOT_CONFIG.setByeMessageOn(false);
+        } else if (message_text_lower.equals("/bye on") && !MainClass.PER_GROUP_BOT_CONFIG.isByeOn()) {
             sendTextMessage(chat_id, "Members will be given a warm bye.", message);
-            MainClass.perGroupBotConfig.setByeMessageOn(true);
-        } else if (message_text_lower.equals("/antibot off") && MainClass.perGroupBotConfig.isAntiBotOn()) {
+            MainClass.PER_GROUP_BOT_CONFIG.setByeMessageOn(true);
+        } else if (message_text_lower.equals("/antibot off") && MainClass.PER_GROUP_BOT_CONFIG.isAntiBotOn()) {
             sendTextMessage(chat_id, "Anti-Bot turned off, bots allowed in this chat.", message);
-            MainClass.perGroupBotConfig.setAntiBotOn(false);
+            MainClass.PER_GROUP_BOT_CONFIG.setAntiBotOn(false);
 
-        } else if (message_text_lower.equals("/antibot on") && !MainClass.perGroupBotConfig.isAntiBotOn()) {
+        } else if (message_text_lower.equals("/antibot on") && !MainClass.PER_GROUP_BOT_CONFIG.isAntiBotOn()) {
             if (!botIsAdmin(update)) {
                 sendTextMessage(chat_id, "Anti-Bot only works if this bot is admin.", message);
             } else {
                 sendTextMessage(chat_id, "Anti-Bot turned on, bots not allowed in this chat.", message);
-                MainClass.perGroupBotConfig.setAntiBotOn(true);
+                MainClass.PER_GROUP_BOT_CONFIG.setAntiBotOn(true);
             }
 
-        } else if (message_text_lower.equals("/pfp off") && MainClass.perGroupBotConfig.needsPfp()) {
+        } else if (message_text_lower.equals("/pfp off") && MainClass.PER_GROUP_BOT_CONFIG.needsPfp()) {
             sendTextMessage(chat_id, "Profile pictures not needed from new members when joining.", message);
-            MainClass.perGroupBotConfig.setPfpNeeded(false);
+            MainClass.PER_GROUP_BOT_CONFIG.setPfpNeeded(false);
 
-        } else if (message_text_lower.equals("/pfp on") && !MainClass.perGroupBotConfig.needsPfp()) {
+        } else if (message_text_lower.equals("/pfp on") && !MainClass.PER_GROUP_BOT_CONFIG.needsPfp()) {
             if (!botIsAdmin(update)) {
                 sendTextMessage(chat_id, "Pfp command only works if this bot is admin.", message);
             } else {
                 sendTextMessage(chat_id, "Profile pictures needed from new members when joining.", message);
-                MainClass.perGroupBotConfig.setPfpNeeded(true);
+                MainClass.PER_GROUP_BOT_CONFIG.setPfpNeeded(true);
             }
 
         } else if (message_text_lower.startsWith("/setwelcome ")) {
             String restOfText = message_text.substring(message_text.indexOf(" "));
-            MainClass.perGroupBotConfig.setWelcomeMessage(restOfText);
+            MainClass.PER_GROUP_BOT_CONFIG.setWelcomeMessage(restOfText);
             sendTextMessage(chat_id, "Welcome message set.", message);
 
         } else if (message_text_lower.startsWith("/setbye ")) {
             String restOfText = message_text.substring(message_text.indexOf(" "));
-            MainClass.perGroupBotConfig.setByeMessage(restOfText);
+            MainClass.PER_GROUP_BOT_CONFIG.setByeMessage(restOfText);
             sendTextMessage(chat_id, "Bye message set.", message);
 
         } else if (message_text_lower.startsWith("/maxtext ")) {
@@ -598,7 +601,7 @@ class BotMaintainer extends MainBotClass {
                             "Max message length should be between 1 and " + Constants.MAX_MESSAGE_INT, message);
                 } else {
                     sendTextMessage(chat_id, "Max message length set to " + num, message);
-                    MainClass.perGroupBotConfig.setMaxTextLength(num);
+                    MainClass.PER_GROUP_BOT_CONFIG.setMaxTextLength(num);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

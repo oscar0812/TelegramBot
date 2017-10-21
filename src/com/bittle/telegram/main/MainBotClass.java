@@ -26,17 +26,11 @@ public class MainBotClass extends TelegramLongPollingBot {
         super();
     }
 
-    MainBotClass(BotMaintainer bm) {
-        botMaintainer = bm;
-    }
-
     private ScoreKeeper scoreKeeper;
-
-    private BotMaintainer botMaintainer = null;
 
     @Override
     public void onUpdateReceived(Update update) {
-        MainClass.perGroupBotConfig = new PerGroupBotConfig(update);
+        MainClass.PER_GROUP_BOT_CONFIG = new PerGroupBotConfig(update);
 
         // We check if the update has a message and the message has text
         if (update.hasMessage()) {
@@ -45,7 +39,7 @@ public class MainBotClass extends TelegramLongPollingBot {
             if (message.hasText()) {
 
                 scoreKeeper = new ScoreKeeper(update);
-                botMaintainer.respondToText(update, scoreKeeper);
+                new BotMaintainer().respondToText(update, scoreKeeper);
 
             } else if (update.getMessage().hasPhoto()) {
                 // photo stuff
@@ -59,14 +53,14 @@ public class MainBotClass extends TelegramLongPollingBot {
                 if (memberJoinedChat(update)) {
 
                     List<User> join_users = update.getMessage().getNewChatMembers();
-                    if (MainClass.perGroupBotConfig.isWelcomeOn()) {
+                    if (MainClass.PER_GROUP_BOT_CONFIG.isWelcomeOn()) {
 
                         for (int x = 0; x < join_users.size(); x++) {
                             User currentUser = join_users.get(x);
 
                             if (isBot(currentUser)) {
 
-                                if (MainClass.perGroupBotConfig.isAntiBotOn()) {
+                                if (MainClass.PER_GROUP_BOT_CONFIG.isAntiBotOn()) {
 
                                     if (botIsAdmin(update)) {
 
@@ -84,7 +78,7 @@ public class MainBotClass extends TelegramLongPollingBot {
 
                             if (!userHasPfp(currentUser)) {
                                 // joined user doesn't have a pfp
-                                if (MainClass.perGroupBotConfig.needsPfp()) {
+                                if (MainClass.PER_GROUP_BOT_CONFIG.needsPfp()) {
                                     if (botIsAdmin(update)) {
                                         sendTextMessage(chat_id,
                                                 "Profile picture needed when joining.", message);
@@ -100,13 +94,13 @@ public class MainBotClass extends TelegramLongPollingBot {
                         }
 
                         if (!join_users.isEmpty())
-                            sendTextMessage(chat_id, MainClass.perGroupBotConfig.getWelcomeMessage(join_users), message);
+                            sendTextMessage(chat_id, MainClass.PER_GROUP_BOT_CONFIG.getWelcomeMessage(join_users), message);
                     }
                 }
 
                 // chat member left
-                if (memberLeftChat(update) && MainClass.perGroupBotConfig.isByeOn()) {
-                    sendTextMessage(chat_id, MainClass.perGroupBotConfig.getByeMessage(update), message);
+                if (memberLeftChat(update) && MainClass.PER_GROUP_BOT_CONFIG.isByeOn()) {
+                    sendTextMessage(chat_id, MainClass.PER_GROUP_BOT_CONFIG.getByeMessage(update), message);
                 }
 
             }

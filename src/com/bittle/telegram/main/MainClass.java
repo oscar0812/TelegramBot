@@ -13,8 +13,8 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
 public class MainClass {
 
     public static final Directory directory = new Directory();
-    static final GlobalBotConfig GLOBAL_BOT_CONFIG = new GlobalBotConfig();
-    static PerGroupBotConfig perGroupBotConfig;
+    public static final GlobalBotConfig GLOBAL_BOT_CONFIG = new GlobalBotConfig();
+    public static PerGroupBotConfig PER_GROUP_BOT_CONFIG;
 
     private void startBot(){
 
@@ -27,7 +27,7 @@ public class MainClass {
         // Register our bot
         System.out.println("Bot starting up...");
         try {
-            botsApi.registerBot(new MainBotClass(new BotMaintainer()));
+            botsApi.registerBot(new MainBotClass());
             System.out.println("Bot startup successful.");
         } catch (TelegramApiException e) {
             e.printStackTrace();
