@@ -19,6 +19,8 @@ Features:
 4) Info stored in xml files, so easy to modify
 
 Example bot usage:
+<br>
+<br>
 <img src="/img/ss1.png" width="300">
 <br>
 <br>
