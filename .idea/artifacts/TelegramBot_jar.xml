@@ -4,6 +4,7 @@
     <root id="archive" name="TelegramBot.jar">
       <element id="module-output" name="TelegramBot" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/telegrambots-3.4-jar-with-dependencies.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/gson-2.8.2.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

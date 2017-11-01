@@ -6,7 +6,38 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d6b9f88-2f26-4dcc-977a-1bebb0d50cc6" name="Default" comment="" />
+    <list default="true" id="0d6b9f88-2f26-4dcc-977a-1bebb0d50cc6" name="Default" comment="documentation and PER_GROUP_GROUP_CONFIG made final">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/telegrambots-3.1.2-jar-with-dependencies.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TelegramBot/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Configurations/GlobalBotConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Configurations/PerGroupBotConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Games/ScoreKeeper$1.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/TelegramBot_jar/TelegramBot.jar" afterPath="$PROJECT_DIR$/out/artifacts/TelegramBot_jar/TelegramBot.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Directory.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Directory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Games/Hangman$1.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Games/Hangman$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Games/Hangman$MyChar.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Games/Hangman$MyChar.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Games/Hangman.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Games/Hangman.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Games/ScoreKeeper$UserAndScore.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Games/ScoreKeeper$UserAndScore.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Games/ScoreKeeper.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Games/ScoreKeeper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/ImageModifier.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/ImageModifier.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Main/BotMaintainer$1.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Main/BotMaintainer$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Main/BotMaintainer$CurrentGame.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Main/BotMaintainer$CurrentGame.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Main/BotMaintainer.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Main/BotMaintainer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Main/BotResponse.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Main/BotResponse.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Main/MainBotClass.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Main/MainBotClass.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Main/MainClass.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Main/MainClass.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Main/Test.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Main/Test.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/ScriptRunner.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/ScriptRunner.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Text/AZLyrics$Song.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Text/AZLyrics$Song.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Text/AZLyrics.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Text/AZLyrics.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Text/Dictionary.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Text/Dictionary.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Text/StringUtils.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/Text/StringUtils.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/WebCrawler.class" afterPath="$PROJECT_DIR$/out/production/TelegramBot/com/bittle/telegram/WebCrawler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/TelegramBot_jar.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/TelegramBot_jar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/oscartorres.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/oscartorres.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,27 +47,43 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="MainClass.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/MainClass.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="MainBotClass.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/main/MainBotClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="5" lean-forward="false" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="-4896">
+              <caret line="22" column="15" lean-forward="false" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BittleBot.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BittleBot.java">
+      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/main/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainClass.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/main/MainClass.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="39">
+              <caret line="13" column="6" lean-forward="false" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Test.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/main/Test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -50,6 +97,34 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>size</find>
+      <find>sendPH</find>
+      <find>text</find>
+      <find>/text</find>
+      <find>lexi</find>
+      <find>ud</find>
+      <find>4085</find>
+      <find>userisad</find>
+      <find>getusername</find>
+      <find>sendTextMessage</find>
+      <find>/ud</find>
+      <find>sendpfp</find>
+      <find>bittle_bot</find>
+      <find>removeC</find>
+      <find>if(</find>
+      <find>off</find>
+      <find>fonts</find>
+    </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src</dir>
+      <dir>$PROJECT_DIR$/src/com/bittle/telegram</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
       <projects_view />
@@ -59,11 +134,50 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/BotClass.java" />
+        <option value="$PROJECT_DIR$/src/Constants.java" />
         <option value="$PROJECT_DIR$/src/MainClass.java" />
         <option value="$PROJECT_DIR$/src/BittleBot.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/bot/MainClass.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/bot/util/StringUtil.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/internet/pastebin/Pastebin.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/bot/Constants.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/bot/BittleBot.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/bot/util/MessageHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/Configurations/PerGroupBotConfig.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/Text/StringUtils.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/Configurations/GlobalBotConfig.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/Text/AZLyrics.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/Text/Dictionary.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/Main/MainBotClass.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/Main/BotMaintainer.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/Main/BotResponse.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/text/Pastebin.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/text/StringUtils.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/main/BotMaintainer.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/main/BotResponse.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/text/StringCommands.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/Directory.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/config/GlobalBotConfig.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/config/PerGroupBotConfig.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/games/Hangman.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/games/ScoreKeeper.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/main/MainBotClass.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/main/MainClass.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/main/Test.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/ImageModifier.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/Moderator.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/ScriptRunner.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/WebCrawler.java" />
+        <option value="$PROJECT_DIR$/src/com/bittle/telegram/main/Constants.java" />
       </list>
     </option>
   </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="723" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -79,9 +193,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -92,24 +204,53 @@
             <path>
               <item name="TelegramBot" type="b2602c69:ProjectViewProjectNode" />
               <item name="TelegramBot" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TelegramBot" type="b2602c69:ProjectViewProjectNode" />
               <item name="TelegramBot" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="telegram" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TelegramBot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TelegramBot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="telegram" type="462c0819:PsiDirectoryNode" />
+              <item name="games" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TelegramBot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TelegramBot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="telegram" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="telegrambot" />
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/com/bittle/bot" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -123,10 +264,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MainClass">
+  <component name="RunManager" selected="Application.MainClass (1)">
+    <configuration name="MainClass (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.bittle.telegram.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.bittle.telegram.main.MainClass" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="TelegramBot" />
+      <envs />
+    </configuration>
     <configuration name="MainClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="MainClass" />
+      <option name="MAIN_CLASS_NAME" value="com.bittle.bot.MainClass" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -218,14 +378,34 @@
       <properties />
       <listeners />
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="TelegramBot" />
+      <envs />
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Application.MainClass" />
+      <item index="1" class="java.lang.String" itemvalue="Application.MainClass (1)" />
+    </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Application.MainClass" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Application.MainClass (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Application.MainClass" />
       </list>
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -235,65 +415,619 @@
       <option name="presentableId" value="Default" />
       <updated>1508347809767</updated>
     </task>
+    <task id="LOCAL-00001" summary="urban dictionary api">
+      <created>1508349846792</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1508349846792</updated>
+    </task>
+    <task id="LOCAL-00002" summary="urban dictionary api">
+      <created>1508350449716</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1508350449716</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Feedback on bot start up">
+      <created>1508350468946</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1508350468946</updated>
+    </task>
+    <task id="LOCAL-00004" summary="moved package">
+      <created>1508355830603</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1508355830603</updated>
+    </task>
+    <task id="LOCAL-00005" summary="extracted files from jars and moved gson as lib, for online hosting purposes">
+      <created>1508355874783</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1508355874783</updated>
+    </task>
+    <task id="LOCAL-00006" summary="log method and logic for large messages">
+      <created>1508443488632</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1508443488632</updated>
+    </task>
+    <task id="LOCAL-00007" summary="scrape pastebin data from url">
+      <created>1508443511544</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1508443511544</updated>
+    </task>
+    <task id="LOCAL-00008" summary="moved package">
+      <created>1508443527389</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1508443527389</updated>
+    </task>
+    <task id="LOCAL-00009" summary="jsoup and gson libraries">
+      <created>1508443543354</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1508443543354</updated>
+    </task>
+    <task id="LOCAL-00010" summary="move text responses here to avoid cluttering classes">
+      <created>1508443590070</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1508443590070</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fixed spacing">
+      <created>1508471475084</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1508471475084</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fixed spacing">
+      <created>1508471695867</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1508471695867</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fixed spacing">
+      <created>1508471707794</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1508471707794</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fixed spacing">
+      <created>1508471716637</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1508471716637</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fixed spacing">
+      <created>1508471726924</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1508471726924</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fixed spacing">
+      <created>1508471739275</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1508471739275</updated>
+    </task>
+    <task id="LOCAL-00017" summary="fixed spacing and removed commands">
+      <created>1508471764901</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1508471764901</updated>
+    </task>
+    <task id="LOCAL-00018" summary="fixed spacing and removed some admins">
+      <created>1508471792934</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1508471792934</updated>
+    </task>
+    <task id="LOCAL-00019" summary="lower case package names">
+      <created>1508524659608</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1508524659609</updated>
+    </task>
+    <task id="LOCAL-00020" summary="pastebin scraping class">
+      <created>1508524878480</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1508524878480</updated>
+    </task>
+    <task id="LOCAL-00021" summary="update api">
+      <created>1508525111972</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1508525111972</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Change 4085 to Constants.MAX_MESSAGE_LENGTH">
+      <created>1508525181140</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1508525181140</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Constants class to organize variables">
+      <created>1508525233597</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1508525233597</updated>
+    </task>
+    <task id="LOCAL-00024" summary="changed 4085 to Constants.MAX_MESSAGE_LENGTH">
+      <created>1508525268005</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1508525268005</updated>
+    </task>
+    <task id="LOCAL-00025" summary="package lowercase fix">
+      <created>1508525357590</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1508525357590</updated>
+    </task>
+    <task id="LOCAL-00026" summary="changed 4085 to Constants.MAX_MESSAGE_LENGTH">
+      <created>1508525370593</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1508525370593</updated>
+    </task>
+    <task id="LOCAL-00027" summary="new iml with all imports">
+      <created>1508528495480</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1508528495480</updated>
+    </task>
+    <task id="LOCAL-00028" summary="dangling comment fix">
+      <created>1508528509675</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1508528509675</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Fix warning loops with string concat">
+      <created>1508528574893</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1508528574893</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Fix warning loops with string concat and removed jetbrins annotations">
+      <created>1508528603144</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1508528603145</updated>
+    </task>
+    <task id="LOCAL-00031" summary="fixed variable scopes">
+      <created>1508528626479</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1508528626479</updated>
+    </task>
+    <task id="LOCAL-00032" summary="fixed variable scopes, moved bot user and token to Constants, and updates message function to reply to incoming message">
+      <created>1508528761298</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1508528761298</updated>
+    </task>
+    <task id="LOCAL-00033" summary="fixed variable scopes and reply strings">
+      <created>1508528799063</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1508528799063</updated>
+    </task>
+    <task id="LOCAL-00034" summary="fixed variable scopes, moved bot user and token to Constants, and updated message function to reply to incoming message">
+      <created>1508528871223</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1508528871223</updated>
+    </task>
+    <task id="LOCAL-00035" summary="fixed looping string concat, joined error functions, and fixed var scopes">
+      <created>1508528936946</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1508528936946</updated>
+    </task>
+    <task id="LOCAL-00036" summary="fixed loop string concat, and var scopes">
+      <created>1508528970410</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1508528970410</updated>
+    </task>
+    <task id="LOCAL-00037" summary="fixed loop string concat, and null error with getMaxTextLength">
+      <created>1508529005913</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1508529005913</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Moved removeCall method to StringUtils">
+      <created>1508529399390</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1508529399390</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Main directory will be based off of bots username">
+      <created>1508529433413</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1508529433413</updated>
+    </task>
+    <task id="LOCAL-00040" summary="documentation and PER_GROUP_GROUP_CONFIG made final">
+      <created>1508545407829</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1508545407829</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Moved commands/responses that never change to their own class">
+      <created>1508545447124</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1508545447124</updated>
+    </task>
+    <task id="LOCAL-00042" summary="documentation">
+      <created>1508545886134</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1508545886134</updated>
+    </task>
+    <task id="LOCAL-00043" summary="for use">
+      <created>1509564027421</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1509564027421</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="723" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1280" height="721" extended-state="6" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32961783" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32961783" sideWeight="0.49676898" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32961783" sideWeight="0.503231" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3290735" sideWeight="0.49676898" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2819063" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32961783" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fixed spacing and removed some admins" />
+    <MESSAGE value="lower case package names" />
+    <MESSAGE value="pastebin scraping class" />
+    <MESSAGE value="update api" />
+    <MESSAGE value="Change 4085 to Constants.MAX_MESSAGE_LENGTH" />
+    <MESSAGE value="Constants class to organize variables" />
+    <MESSAGE value="package lowercase fix" />
+    <MESSAGE value="changed 4085 to Constants.MAX_MESSAGE_LENGTH" />
+    <MESSAGE value="new iml with all imports" />
+    <MESSAGE value="dangling comment fix" />
+    <MESSAGE value="Fix warning loops with string concat" />
+    <MESSAGE value="Fix warning loops with string concat and removed jetbrins annotations" />
+    <MESSAGE value="fixed variable scopes" />
+    <MESSAGE value="fixed variable scopes, moved bot user and token to Constants, and updates message function to reply to incoming message" />
+    <MESSAGE value="fixed variable scopes and reply strings" />
+    <MESSAGE value="fixed variable scopes, moved bot user and token to Constants, and updated message function to reply to incoming message" />
+    <MESSAGE value="fixed looping string concat, joined error functions, and fixed var scopes" />
+    <MESSAGE value="fixed loop string concat, and var scopes" />
+    <MESSAGE value="fixed loop string concat, and null error with getMaxTextLength" />
+    <MESSAGE value="Moved removeCall method to StringUtils" />
+    <MESSAGE value="Main directory will be based off of bots username" />
+    <MESSAGE value="documentation and PER_GROUP_GROUP_CONFIG made final" />
+    <MESSAGE value="Moved commands/responses that never change to their own class" />
+    <MESSAGE value="documentation" />
+    <MESSAGE value="for use" />
+    <option name="LAST_COMMIT_MESSAGE" value="for use" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/BittleBot.java">
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/ImageModifier.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainClass.java">
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/main/BotResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="5" lean-forward="false" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        <state relative-caret-position="135">
+          <caret line="9" column="27" lean-forward="true" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/bot/MainClass.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/bot/BittleBot.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/bot/util/MessageHandler.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/bot/MainClass.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/bot/BittleBot.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/bot/util/MessageHandler.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/bot/MainClass.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/bot/util/MessageHandler.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/bot/MainClass.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/bot/BittleBot.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/bot/Constants.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/internet/urban/Definition.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/bot/MainClass.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/bot/BittleBot.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/bot/Constants.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/internet/urban/Definition.java" />
+    <entry file="jar://$PROJECT_DIR$/lib/telegrambots-3.4-jar-with-dependencies.jar!/org/telegram/telegrambots/bots/DefaultAbsSender.class" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="257" column="40" lean-forward="false" selection-start-line="257" selection-start-column="36" selection-end-line="257" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/telegrambots-3.4-jar-with-dependencies.jar!/org/telegram/telegrambots/api/methods/send/SendMessage.class" />
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/bot/MainClass.java" />
+    <entry file="jar://$PROJECT_DIR$/lib/telegrambots-3.4-jar-with-dependencies.jar!/org/telegram/telegrambots/api/objects/PhotoSize.class" />
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/bot/Constants.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/internet/pastebin/Pastebin.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/bot/BittleBot.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/bot/util/MessageHandler.java" />
+    <entry file="file://$PROJECT_DIR$/test1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/text/AZLyrics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/telegrambots-3.4-jar-with-dependencies.jar!/org/telegram/telegrambots/bots/AbsSender.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9349">
+          <caret line="295" column="29" lean-forward="false" selection-start-line="295" selection-start-column="22" selection-end-line="295" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+    <entry file="file://$PROJECT_DIR$/TelegramBot.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/text/Pastebin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/text/Dictionary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1129">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Dictionary#0;class#Dictionary#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/text/StringUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1515">
+          <caret line="106" column="5" lean-forward="false" selection-start-line="106" selection-start-column="5" selection-end-line="106" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/text/StringCommands.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/main/BotResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3301">
+          <caret line="19" column="6" lean-forward="false" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/config/PerGroupBotConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3116">
+          <caret line="28" column="28" lean-forward="false" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/main/BotMaintainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="22" column="29" lean-forward="false" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/Moderator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/ScriptRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="20" lean-forward="false" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/WebCrawler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="11" column="48" lean-forward="false" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/config/GlobalBotConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2106">
+          <caret line="24" column="30" lean-forward="false" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/main/MainClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="13" column="6" lean-forward="false" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/main/MainBotClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4896">
+          <caret line="22" column="15" lean-forward="false" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/main/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/games/ScoreKeeper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4701">
+          <caret line="22" column="28" lean-forward="false" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/games/Hangman.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="571">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/Directory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="35" column="68" lean-forward="false" selection-start-line="35" selection-start-column="68" selection-end-line="35" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/ImageModifier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bittle/telegram/main/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -376,7 +1110,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>telegrambots-3.4-jar-with-dependencies</last-edited>
+          <last-edited>com.google.code.gson:gson:2.8.2</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
