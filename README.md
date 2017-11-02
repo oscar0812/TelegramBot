@@ -16,7 +16,7 @@ Features:
     - and many more!
 2) Urban dictionary lookup
 3) Math equation solver
-4) Info stored in xml files, so easy to modify
+4) Info stored in xml files, so it's easy to modify
 
 Example bot usage:
 <br>
@@ -25,3 +25,6 @@ Example bot usage:
 <br>
 <br>
 <img src="/img/ss2.png" width="300">
+<br>
+<br>
+<img src="/img/ss3.png" width="300">
