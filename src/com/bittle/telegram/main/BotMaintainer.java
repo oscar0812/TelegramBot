@@ -29,30 +29,23 @@ class BotMaintainer extends MainBotClass {
         private String current_scramble_word = "";
         private String current_taboo_word = "";
         private String player_username = "";
-
-        private long group_id;
-
         private boolean is_type = false;
         private boolean is_scramble = false;
         private boolean is_taboo = false;
 
         private Hangman hangman = null;
 
-        private CurrentGame(long g_id) {
-            group_id = g_id;
-        }
     }
 
     // to play separate games on separate groups
-    private HashMap<Long, CurrentGame> currentGames = new HashMap<>();
+    private static HashMap<Long, CurrentGame> currentGames = new HashMap<>();
 
     private final Dictionary dictionary = new Dictionary();
 
     private ScoreKeeper games;
 
-
     // respond appropriate for the incoming update
-    public void respondToText(Update update, ScoreKeeper g) {
+    void respondToText(Update update, ScoreKeeper g) {
 
         games = g;
         Message message = update.getMessage();
@@ -313,7 +306,6 @@ class BotMaintainer extends MainBotClass {
         String message_text_lower = message_text.toLowerCase();
         User message_sender = message.getFrom();
 
-
         if (!MainClass.PER_GROUP_BOT_CONFIG.areGamesOn()) {
             return "";
         }
@@ -370,7 +362,7 @@ class BotMaintainer extends MainBotClass {
 
                     bot_say_this = "Type: " + currentGames.get(chat_id).current_type_word;
                 } else {
-                    CurrentGame game = new CurrentGame(chat_id);
+                    CurrentGame game = new CurrentGame();
                     game.current_type_word = dictionary.getRandomWord();
                     game.is_type = true;
                     currentGames.put(chat_id, game);
@@ -390,7 +382,7 @@ class BotMaintainer extends MainBotClass {
 
                     bot_say_this = "Unscramble: " + game.current_scramble_word;
                 } else {
-                    CurrentGame game = new CurrentGame(chat_id);
+                    CurrentGame game = new CurrentGame();
                     game.current_unscrambled_word = dictionary.getRandomWord();
                     game.current_scramble_word = dictionary.scrambleWord(game.current_unscrambled_word);
                     game.is_scramble = true;
@@ -402,7 +394,7 @@ class BotMaintainer extends MainBotClass {
             case "/taboo":
                 if (!message.getChat().isUserChat()) {
                     if (!currentGames.containsKey(chat_id)) {
-                        currentGames.put(chat_id, new CurrentGame(chat_id));
+                        currentGames.put(chat_id, new CurrentGame());
                     }
                     CurrentGame game = currentGames.get(chat_id);
                     if (!game.current_taboo_word.isEmpty()) {
@@ -439,7 +431,7 @@ class BotMaintainer extends MainBotClass {
         long chat_id = update.getMessage().getChatId();
 
         if (!currentGames.containsKey(chat_id)) {
-            currentGames.put(chat_id, new CurrentGame(chat_id));
+            currentGames.put(chat_id, new CurrentGame());
         }
 
         CurrentGame currentGame = currentGames.get(chat_id);
